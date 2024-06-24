@@ -1,0 +1,1197 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>12. Práctica IV &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Practica IV';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="13. Referencia Bibliográfica" href="Bibliograf%C3%ADa.html" />
+    <link rel="prev" title="8. Práctica III" href="Practica%20III.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Original Logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/Original Logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Notas de Clases - 2024
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Conceptos%20Basicos.html">1. Conociendo Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python%20B%C3%A1sico.html">2. Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metodos.html">3. Métodos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operadores.html">4. Operadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis y Visualización de Datos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Visualizaci%C3%B3n.html">5. ¿Qué es el Análisis y la Visualización de Datos?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gr%C3%A1ficos.html">6. Matplotlib</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Practica%20III.html">8. Práctica III</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Práctica IV</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Bibliograf%C3%ADa.html">13. Referencia Bibliográfica</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPractica IV.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Practica IV.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Práctica IV</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="practica-iv">
+<h1><span class="section-number">12. </span>Práctica IV<a class="headerlink" href="#practica-iv" title="Link to this heading">#</a></h1>
+<div align="justify">En este caso, utilizamos la <strong>plataforma Kaggle</strong> y obtuvimos el data set llamado Most Streamed Spotify Songs 2023. Este conjunto de datos contiene una lista completa de las canciones más famosas de 2023 que aparecen en Spotify. El conjunto de datos proporciona información sobre los atributos, la popularidad y la presencia de cada canción en varias plataformas de música.</div>
+<div align="justify">El conjunto de datos incluye información como el nombre de la pista, el nombre del artista, la fecha de lanzamiento, las listas de reproducción y listas de Spotify, las estadísticas de transmisión, la presencia de Apple Music, la presencia de Deezer, las listas de Shazam y varias funciones de audio.</div>
+<div align="justify">Atributos o nombres de las columnas.</div>
+<ul class="simple">
+<li><p>track_name: Nombre de la canción.</p></li>
+<li><p>artista(s)_nombre: Nombre del(los) artista(s) de la canción.</p></li>
+<li><p>artist_count: Número de artistas que contribuyen a la canción.</p></li>
+<li><p>released_year: Año en el que se lanzó la canción.</p></li>
+<li><p>released_month: Mes en el que se lanzó la canción.</p></li>
+<li><p>released_day: Día del mes en el que se lanzó la canción.</p></li>
+<li><p>in_spotify_playlists: Número de listas de reproducción de Spotify en las que se incluye la canción.</p></li>
+<li><p>in_spotify_charts: Presencia y rango de la canción en las listas de Spotify transmisiones: Número total de transmisiones en Spotify.</p></li>
+<li><p>in_apple_playlists: Número de listas de reproducción de Apple Music en las que se incluye la canción.</p></li>
+<li><p>in_apple_charts: Presencia y rango de la canción en las listas de Apple Music.</p></li>
+<li><p>in_deezer_playlists: Número de listas de reproducción de Deezer en las que se incluye la canción.</p></li>
+<li><p>in_deezer_charts: Presencia y rango de la canción en las listas de Deezer.</p></li>
+<li><p>in_shazam_charts: Presencia y rango de la canción en las listas de Shazam.</p></li>
+<li><p>bpm: Latidos por minuto, una medida del tempo de la canción.</p></li>
+<li><p>clave: Clave de la canción.</p></li>
+<li><p>modo: Modo de la canción (mayor o menor).</p></li>
+<li><p>danceability_%: Porcentaje que indica lo adecuada que es la canción para bailar.</p></li>
+<li><p>valence_%: Positividad del contenido musical de la canción.</p></li>
+<li><p>energy_%: Nivel de energía percibido de la canción.</p></li>
+<li><p>acústica_%: Cantidad de sonido acústico en la canción.</p></li>
+<li><p>instrumentalness_%: Cantidad de contenido instrumental en la canción.</p></li>
+<li><p>liveness_%: Presencia de elementos de actuación en vivo.</p></li>
+<li><p>speechiness_%: Cantidad de palabras habladas en la canción.</p></li>
+</ul>
+<p><a class="reference external" href="https://www.kaggle.com">Visita Kaggle</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Leer el archivo en modo binario y decodificar manualmente</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;spotify-2023.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">decoded_content</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+    <span class="n">decoded_content</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;latin-1&#39;</span><span class="p">)</span>  <span class="c1"># O cualquier otra codificación que sospeches</span>
+
+<span class="c1"># Guardar el contenido decodificado en un nuevo archivo temporal</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;spotify-2023-temp.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">decoded_content</span><span class="p">)</span>
+
+<span class="c1"># Cargar los datos desde el archivo temporal CSV</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;spotify-2023-temp.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Mostrar las primeras filas del DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            track_name    artist(s)_name  artist_count  \
+0  Seven (feat. Latto) (Explicit Ver.)  Latto, Jung Kook             2   
+1                                 LALA       Myke Towers             1   
+2                              vampire    Olivia Rodrigo             1   
+3                         Cruel Summer      Taylor Swift             1   
+4                       WHERE SHE GOES         Bad Bunny             1   
+
+   released_year  released_month  released_day  in_spotify_playlists  \
+0           2023               7            14                   553   
+1           2023               3            23                  1474   
+2           2023               6            30                  1397   
+3           2019               8            23                  7858   
+4           2023               5            18                  3133   
+
+   in_spotify_charts    streams  in_apple_playlists  ...  bpm key   mode  \
+0                147  141381703                  43  ...  125   B  Major   
+1                 48  133716286                  48  ...   92  C#  Major   
+2                113  140003974                  94  ...  138   F  Major   
+3                100  800840817                 116  ...  170   A  Major   
+4                 50  303236322                  84  ...  144   A  Minor   
+
+  danceability_%  valence_% energy_% acousticness_%  instrumentalness_%  \
+0             80         89       83             31                   0   
+1             71         61       74              7                   0   
+2             51         32       53             17                   0   
+3             55         58       72             11                   0   
+4             65         23       80             14                  63   
+
+   liveness_%  speechiness_%  
+0           8              4  
+1          10              4  
+2          31              6  
+3          11             15  
+4          11              6  
+
+[5 rows x 24 columns]
+                    track_name      artist(s)_name  artist_count  \
+948               My Mind &amp; Me        Selena Gomez             1   
+949  Bigger Than The Whole Sky        Taylor Swift             1   
+950       A Veces (feat. Feid)  Feid, Paulo Londra             2   
+951              En La De Ella  Feid, Sech, Jhayco             3   
+952                      Alone           Burna Boy             1   
+
+     released_year  released_month  released_day  in_spotify_playlists  \
+948           2022              11             3                   953   
+949           2022              10            21                  1180   
+950           2022              11             3                   573   
+951           2022              10            20                  1320   
+952           2022              11             4                   782   
+
+     in_spotify_charts    streams  in_apple_playlists  ...  bpm key   mode  \
+948                  0   91473363                  61  ...  144   A  Major   
+949                  0  121871870                   4  ...  166  F#  Major   
+950                  0   73513683                   2  ...   92  C#  Major   
+951                  0  133895612                  29  ...   97  C#  Major   
+952                  2   96007391                  27  ...   90   E  Minor   
+
+    danceability_%  valence_% energy_% acousticness_%  instrumentalness_%  \
+948             60         24       39             57                   0   
+949             42          7       24             83                   1   
+950             80         81       67              4                   0   
+951             82         67       77              8                   0   
+952             61         32       67             15                   0   
+
+     liveness_%  speechiness_%  
+948           8              3  
+949          12              6  
+950           8              6  
+951          12              5  
+952          11              5  
+
+[5 rows x 24 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Describir el DataFrame para obtener estadísticas descriptivas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+
+<span class="c1"># Verificar si hay valores nulos en el DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       artist_count  released_year  released_month  released_day  \
+count    953.000000     953.000000      953.000000    953.000000   
+mean       1.556139    2018.238195        6.033578     13.930745   
+std        0.893044      11.116218        3.566435      9.201949   
+min        1.000000    1930.000000        1.000000      1.000000   
+25%        1.000000    2020.000000        3.000000      6.000000   
+50%        1.000000    2022.000000        6.000000     13.000000   
+75%        2.000000    2022.000000        9.000000     22.000000   
+max        8.000000    2023.000000       12.000000     31.000000   
+
+       in_spotify_playlists  in_spotify_charts  in_apple_playlists  \
+count            953.000000         953.000000          953.000000   
+mean            5200.124869          12.009444           67.812172   
+std             7897.608990          19.575992           86.441493   
+min               31.000000           0.000000            0.000000   
+25%              875.000000           0.000000           13.000000   
+50%             2224.000000           3.000000           34.000000   
+75%             5542.000000          16.000000           88.000000   
+max            52898.000000         147.000000          672.000000   
+
+       in_apple_charts  in_deezer_charts         bpm  danceability_%  \
+count       953.000000        953.000000  953.000000       953.00000   
+mean         51.908709          2.666317  122.540399        66.96957   
+std          50.630241          6.035599   28.057802        14.63061   
+min           0.000000          0.000000   65.000000        23.00000   
+25%           7.000000          0.000000  100.000000        57.00000   
+50%          38.000000          0.000000  121.000000        69.00000   
+75%          87.000000          2.000000  140.000000        78.00000   
+max         275.000000         58.000000  206.000000        96.00000   
+
+        valence_%    energy_%  acousticness_%  instrumentalness_%  liveness_%  \
+count  953.000000  953.000000      953.000000          953.000000  953.000000   
+mean    51.431270   64.279119       27.057712            1.581322   18.213012   
+std     23.480632   16.550526       25.996077            8.409800   13.711223   
+min      4.000000    9.000000        0.000000            0.000000    3.000000   
+25%     32.000000   53.000000        6.000000            0.000000   10.000000   
+50%     51.000000   66.000000       18.000000            0.000000   12.000000   
+75%     70.000000   77.000000       43.000000            0.000000   24.000000   
+max     97.000000   97.000000       97.000000           91.000000   97.000000   
+
+       speechiness_%  
+count     953.000000  
+mean       10.131165  
+std         9.912888  
+min         2.000000  
+25%         4.000000  
+50%         6.000000  
+75%        11.000000  
+max        64.000000  
+track_name               0
+artist(s)_name           0
+artist_count             0
+released_year            0
+released_month           0
+released_day             0
+in_spotify_playlists     0
+in_spotify_charts        0
+streams                  0
+in_apple_playlists       0
+in_apple_charts          0
+in_deezer_playlists      0
+in_deezer_charts         0
+in_shazam_charts        50
+bpm                      0
+key                     95
+mode                     0
+danceability_%           0
+valence_%                0
+energy_%                 0
+acousticness_%           0
+instrumentalness_%       0
+liveness_%               0
+speechiness_%            0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar columnas que contienen valores nulos</span>
+<span class="n">df_sin_nulos_columnas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sin_nulos_columnas</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name              0
+artist(s)_name          0
+artist_count            0
+released_year           0
+released_month          0
+released_day            0
+in_spotify_playlists    0
+in_spotify_charts       0
+streams                 0
+in_apple_playlists      0
+in_apple_charts         0
+in_deezer_playlists     0
+in_deezer_charts        0
+bpm                     0
+mode                    0
+danceability_%          0
+valence_%               0
+energy_%                0
+acousticness_%          0
+instrumentalness_%      0
+liveness_%              0
+speechiness_%           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar filas que contienen valores nulos</span>
+<span class="n">df_sin_nulos</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sin_nulos</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name              0
+artist(s)_name          0
+artist_count            0
+released_year           0
+released_month          0
+released_day            0
+in_spotify_playlists    0
+in_spotify_charts       0
+streams                 0
+in_apple_playlists      0
+in_apple_charts         0
+in_deezer_playlists     0
+in_deezer_charts        0
+in_shazam_charts        0
+bpm                     0
+key                     0
+mode                    0
+danceability_%          0
+valence_%               0
+energy_%                0
+acousticness_%          0
+instrumentalness_%      0
+liveness_%              0
+speechiness_%           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar columnas que contienen valores nulos</span>
+<span class="n">df_sin_nulos_columnas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sin_nulos_columnas</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name              0
+artist(s)_name          0
+artist_count            0
+released_year           0
+released_month          0
+released_day            0
+in_spotify_playlists    0
+in_spotify_charts       0
+streams                 0
+in_apple_playlists      0
+in_apple_charts         0
+in_deezer_playlists     0
+in_deezer_charts        0
+bpm                     0
+mode                    0
+danceability_%          0
+valence_%               0
+energy_%                0
+acousticness_%          0
+instrumentalness_%      0
+liveness_%              0
+speechiness_%           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rellenar los valores nulos con 0</span>
+<span class="n">df_relleno_cero</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_relleno_cero</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name              0
+artist(s)_name          0
+artist_count            0
+released_year           0
+released_month          0
+released_day            0
+in_spotify_playlists    0
+in_spotify_charts       0
+streams                 0
+in_apple_playlists      0
+in_apple_charts         0
+in_deezer_playlists     0
+in_deezer_charts        0
+in_shazam_charts        0
+bpm                     0
+key                     0
+mode                    0
+danceability_%          0
+valence_%               0
+energy_%                0
+acousticness_%          0
+instrumentalness_%      0
+liveness_%              0
+speechiness_%           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rellenar los valores nulos con una cadena específica</span>
+<span class="n">df_relleno_texto</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;Desconocido&#39;</span><span class="p">)</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_relleno_texto</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name              0
+artist(s)_name          0
+artist_count            0
+released_year           0
+released_month          0
+released_day            0
+in_spotify_playlists    0
+in_spotify_charts       0
+streams                 0
+in_apple_playlists      0
+in_apple_charts         0
+in_deezer_playlists     0
+in_deezer_charts        0
+in_shazam_charts        0
+bpm                     0
+key                     0
+mode                    0
+danceability_%          0
+valence_%               0
+energy_%                0
+acousticness_%          0
+instrumentalness_%      0
+liveness_%              0
+speechiness_%           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rellenar los valores nulos con la media de cada columna</span>
+<span class="n">df_relleno_media</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="s1">&#39;biufc&#39;</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_relleno_media</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name               0
+artist(s)_name           0
+artist_count             0
+released_year            0
+released_month           0
+released_day             0
+in_spotify_playlists     0
+in_spotify_charts        0
+streams                  0
+in_apple_playlists       0
+in_apple_charts          0
+in_deezer_playlists      0
+in_deezer_charts         0
+in_shazam_charts        50
+bpm                      0
+key                     95
+mode                     0
+danceability_%           0
+valence_%                0
+energy_%                 0
+acousticness_%           0
+instrumentalness_%       0
+liveness_%               0
+speechiness_%            0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rellenar los valores nulos con la mediana de cada columna</span>
+<span class="n">df_relleno_mediana</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">median</span><span class="p">())</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="s1">&#39;biufc&#39;</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_relleno_mediana</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name               0
+artist(s)_name           0
+artist_count             0
+released_year            0
+released_month           0
+released_day             0
+in_spotify_playlists     0
+in_spotify_charts        0
+streams                  0
+in_apple_playlists       0
+in_apple_charts          0
+in_deezer_playlists      0
+in_deezer_charts         0
+in_shazam_charts        50
+bpm                      0
+key                     95
+mode                     0
+danceability_%           0
+valence_%                0
+energy_%                 0
+acousticness_%           0
+instrumentalness_%       0
+liveness_%               0
+speechiness_%            0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Plotear la distribución del año de lanzamiento</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;released_year&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribución de Canciones por Año de Lanzamiento&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Año de Lanzamiento&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de Canciones&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3da8bcd0df1c7044548c65aed3f07428b07da8e193749c65a2e4cb447336c533.png" src="_images/3da8bcd0df1c7044548c65aed3f07428b07da8e193749c65a2e4cb447336c533.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Contar el número de canciones por artista</span>
+<span class="n">top_artists</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;artist(s)_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Plotear los 10 artistas con más canciones</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">top_artists</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">top_artists</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top 10 Artistas con Más Canciones en el Dataset&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Número de Canciones&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Artista&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/89c9cebb54328cd480f67321e587c905e9e3b3d66ead2d6064893880343d14f2.png" src="_images/89c9cebb54328cd480f67321e587c905e9e3b3d66ead2d6064893880343d14f2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Seleccionar algunas características de audio</span>
+<span class="n">audio_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;danceability_%&#39;</span><span class="p">,</span> <span class="s1">&#39;energy_%&#39;</span><span class="p">,</span> <span class="s1">&#39;acousticness_%&#39;</span><span class="p">]</span>
+
+<span class="c1"># Plotear un parplot para comparar estas características</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">audio_features</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Comparación de Atributos de Audio&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/claudiorojas/anaconda3/lib/python3.11/site-packages/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
+  self._figure.tight_layout(*args, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/77b2d8aa540faa2a23521c6b8025ca0f7f674d3f28372fc05f903cda7d0c4fb5.png" src="_images/77b2d8aa540faa2a23521c6b8025ca0f7f674d3f28372fc05f903cda7d0c4fb5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Calcular la matriz de correlación</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">audio_features</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="c1"># Crear un mapa de calor de la matriz de correlación</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Matriz de Correlación entre Atributos de Audio&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5660facfd75d85738286ef735b51f195db1008e30960cd1e8b88fecf7c51aab5.png" src="_images/5660facfd75d85738286ef735b51f195db1008e30960cd1e8b88fecf7c51aab5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotear la relación entre BPM y energy</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;bpm&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;energy_%&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relación entre BPM y Energy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;BPM&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Energy %&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cf76f97497164aca4b2a2af3f135bed6b53d9086a9ab1e323a6d15d167faa38b.png" src="_images/cf76f97497164aca4b2a2af3f135bed6b53d9086a9ab1e323a6d15d167faa38b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Calcular la media y desviación estándar de los BPM</span>
+<span class="n">bpm_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bpm&#39;</span><span class="p">])</span>
+<span class="n">bpm_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bpm&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Media de BPM: </span><span class="si">{</span><span class="n">bpm_mean</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Desviación Estándar de BPM: </span><span class="si">{</span><span class="n">bpm_std</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Calcular la media y desviación estándar de la energía</span>
+<span class="n">energy_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;energy_%&#39;</span><span class="p">])</span>
+<span class="n">energy_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;energy_%&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Media de Energy %: </span><span class="si">{</span><span class="n">energy_mean</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Desviación Estándar de Energy %: </span><span class="si">{</span><span class="n">energy_std</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Media de BPM: 122.54039874081847
+Desviación Estándar de BPM: 28.04307686714831
+Media de Energy %: 64.2791185729276
+Desviación Estándar de Energy %: 16.54184031690203
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mostrar las primeras filas del DataFrame original</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columnas originales:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># Renombrar las columnas</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Nombre&#39;</span><span class="p">,</span> <span class="s1">&#39;Artista&#39;</span><span class="p">,</span> <span class="s1">&#39;Artista_Contribuyentes&#39;</span><span class="p">,</span> <span class="s1">&#39;Año_lanzamiento&#39;</span><span class="p">,</span> <span class="s2">&quot;mes_lanzamiento&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Día_lanzamiento&#39;</span><span class="p">,</span> <span class="s1">&#39;Listas_Spotify&#39;</span><span class="p">,</span> <span class="s1">&#39;Transmisiones_Spotify&#39;</span><span class="p">,</span> <span class="s1">&#39;Listas_Apple&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Presencia_rango_Apple&#39;</span><span class="p">,</span> <span class="s2">&quot;Listas_Deezer&quot;</span><span class="p">,</span> <span class="s1">&#39;Presencia_rango_Deezer&#39;</span><span class="p">,</span> <span class="s1">&#39;Listas_Shazam&#39;</span><span class="p">,</span> <span class="s1">&#39;Anchura_Pixel&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Latidos&#39;</span><span class="p">,</span> <span class="s1">&#39;Clave&#39;</span><span class="p">,</span> <span class="s1">&#39;Modo&#39;</span><span class="p">,</span> <span class="s1">&#39;%_Baile&#39;</span><span class="p">,</span> <span class="s1">&#39;Positividad&#39;</span><span class="p">,</span> <span class="s1">&#39;%_energía&#39;</span><span class="p">,</span> <span class="s1">&#39;%_sonido_acústico&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;%_contenido_instrumental&#39;</span><span class="p">,</span>  <span class="s1">&#39;%_actuación_vivo&#39;</span><span class="p">,</span> <span class="s1">&#39;%_palabras_habladas&#39;</span><span class="p">,</span> 
+<span class="p">]</span>
+
+<span class="c1"># Mostrar las primeras filas del DataFrame con los nuevos nombres de las columnas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nuevas columnas:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Columnas originales: Index([&#39;track_name&#39;, &#39;artist(s)_name&#39;, &#39;artist_count&#39;, &#39;released_year&#39;,
+       &#39;released_month&#39;, &#39;released_day&#39;, &#39;in_spotify_playlists&#39;,
+       &#39;in_spotify_charts&#39;, &#39;streams&#39;, &#39;in_apple_playlists&#39;, &#39;in_apple_charts&#39;,
+       &#39;in_deezer_playlists&#39;, &#39;in_deezer_charts&#39;, &#39;in_shazam_charts&#39;, &#39;bpm&#39;,
+       &#39;key&#39;, &#39;mode&#39;, &#39;danceability_%&#39;, &#39;valence_%&#39;, &#39;energy_%&#39;,
+       &#39;acousticness_%&#39;, &#39;instrumentalness_%&#39;, &#39;liveness_%&#39;, &#39;speechiness_%&#39;],
+      dtype=&#39;object&#39;)
+Nuevas columnas: Index([&#39;Nombre&#39;, &#39;Artista&#39;, &#39;Artista_Contribuyentes&#39;, &#39;Año_lanzamiento&#39;,
+       &#39;mes_lanzamiento&#39;, &#39;Día_lanzamiento&#39;, &#39;Listas_Spotify&#39;,
+       &#39;Transmisiones_Spotify&#39;, &#39;Listas_Apple&#39;, &#39;Presencia_rango_Apple&#39;,
+       &#39;Listas_Deezer&#39;, &#39;Presencia_rango_Deezer&#39;, &#39;Listas_Shazam&#39;,
+       &#39;Anchura_Pixel&#39;, &#39;Latidos&#39;, &#39;Clave&#39;, &#39;Modo&#39;, &#39;%_Baile&#39;, &#39;Positividad&#39;,
+       &#39;%_energía&#39;, &#39;%_sonido_acústico&#39;, &#39;%_contenido_instrumental&#39;,
+       &#39;%_actuación_vivo&#39;, &#39;%_palabras_habladas&#39;],
+      dtype=&#39;object&#39;)
+                                Nombre           Artista  \
+0  Seven (feat. Latto) (Explicit Ver.)  Latto, Jung Kook   
+1                                 LALA       Myke Towers   
+2                              vampire    Olivia Rodrigo   
+3                         Cruel Summer      Taylor Swift   
+4                       WHERE SHE GOES         Bad Bunny   
+
+   Artista_Contribuyentes  Año_lanzamiento  mes_lanzamiento  Día_lanzamiento  \
+0                       2             2023                7               14   
+1                       1             2023                3               23   
+2                       1             2023                6               30   
+3                       1             2019                8               23   
+4                       1             2023                5               18   
+
+   Listas_Spotify  Transmisiones_Spotify Listas_Apple  Presencia_rango_Apple  \
+0             553                    147    141381703                     43   
+1            1474                     48    133716286                     48   
+2            1397                    113    140003974                     94   
+3            7858                    100    800840817                    116   
+4            3133                     50    303236322                     84   
+
+   ...  Latidos Clave   Modo %_Baile  Positividad %_energía %_sonido_acústico  \
+0  ...      125     B  Major      80           89        83                31   
+1  ...       92    C#  Major      71           61        74                 7   
+2  ...      138     F  Major      51           32        53                17   
+3  ...      170     A  Major      55           58        72                11   
+4  ...      144     A  Minor      65           23        80                14   
+
+   %_contenido_instrumental  %_actuación_vivo  %_palabras_habladas  
+0                         0                 8                    4  
+1                         0                10                    4  
+2                         0                31                    6  
+3                         0                11                   15  
+4                        63                11                    6  
+
+[5 rows x 24 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Practica%20III.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Práctica III</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Bibliograf%C3%ADa.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Referencia Bibliográfica</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Claudio Rojas Monsalves. Magíster en Ciencias de Datos (UDEC)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

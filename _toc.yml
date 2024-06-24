@@ -1,0 +1,30 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Introducción a Python
+    numbered: true
+    chapters:
+    - file: Conceptos Basicos
+    - file: Python Básico
+    - file: Metodos
+    - file: Operadores
+  - caption: Análisis y Visualización de Datos
+    numbered: true
+    chapters:
+    - file: Visualización
+    - file: Bases de Datos
+    - file: Graficos
+    - file: Practica III
+    - file: Visualización Mapas
+  - caption: Referencias
+    numbered: true
+    chapters:
+    - file: Bibliografía
+    - file: glossary
+ 
+
+
+

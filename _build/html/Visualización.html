@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. ¿Qué es el Análisis y la Visualización de Datos? &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Visualización';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Base de Datos" href="Bases%20de%20Datos.html" />
+    <link rel="prev" title="4. Operadores" href="Operadores.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Original Logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/Original Logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Notas de Clases - 2024
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Conceptos%20Basicos.html">1. Conociendo Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python%20B%C3%A1sico.html">2. Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metodos.html">3. Métodos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operadores.html">4. Operadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis y Visualización de Datos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. ¿Qué es el Análisis y la Visualización de Datos?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bases%20de%20Datos.html">6. Base de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Graficos.html">7. Gráficos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Practica%20III.html">8. Práctica III</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Visualizaci%C3%B3n%20Mapas.html">9. Mapas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Bibliograf%C3%ADa.html">10. Bibliografía</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">11. Glosario</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FVisualización.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Visualización.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>¿Qué es el Análisis y la Visualización de Datos?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-datos">5.1. Análisis de Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">5.2. Visualización</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos">5.2.1. Tipos de Datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposito-del-analisis">5.2.2. Propósito del Análisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">5.3. Librerías</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="que-es-el-analisis-y-la-visualizacion-de-datos">
+<h1><span class="section-number">5. </span>¿Qué es el Análisis y la Visualización de Datos?<a class="headerlink" href="#que-es-el-analisis-y-la-visualizacion-de-datos" title="Link to this heading">#</a></h1>
+<section id="analisis-de-datos">
+<h2><span class="section-number">5.1. </span>Análisis de Datos<a class="headerlink" href="#analisis-de-datos" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="markdown-fig">
+<a class="reference internal image-reference" href="_images/analitica.jpg"><img alt="datos" src="_images/analitica.jpg" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Análisis de Datos</span><a class="headerlink" href="#markdown-fig" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div align="justify"> La analítica de datos es una disciplina fundamental en la actualidad, impulsando la toma de decisiones informadas y estratégicas en una variedad de campos. Algunas razones por las cuales la analítica de datos es tan importante:</div><br>
+<p><strong>Toma de Decisiones Basada en Datos</strong></p>
+<ul>
+<li><div align="justify"><strong>Objetividad y Precisión</strong>: Permite tomar decisiones basadas en hechos y cifras en lugar de intuiciones o suposiciones, lo que aumenta la precisión y efectividad de las decisiones.</div>
+</li>
+<li><div align="justify"><strong>Identificación de Tendencias y Patrones</strong>: Analizar grandes conjuntos de datos puede revelar tendencias y patrones que no son evidentes a simple vista, proporcionando <strong>insights</strong> valiosos para la planificación estratégica.</div>
+</li>
+</ul>
+<p><strong>Ventaja Competitiva</strong></p>
+<ul>
+<li><div align="justify"><strong>Optimización de Procesos</strong>: Las empresas pueden optimizar sus procesos operativos mediante la identificación de ineficiencias y la implementación de mejoras basadas en datos.</div>
+</li>
+<li><div align="justify"><strong>Innovación</strong>: al identificar necesidades y preferencias del mercado puede conducir a la innovación en productos y servicios.</div>
+</li>
+</ul>
+<p><strong>Mejora de la Experiencia del Cliente</strong></p>
+<ul>
+<li><div align="justify"><strong>Personalización y Satisfacción</strong>: Permite ofrecer experiencias personalizadas y generar más satisfacción a los clientes mediante el análisis de sus comportamientos y preferencias.</div>
+</li>
+</ul>
+<p><strong>Reducción de Costos</strong><br></p>
+<ul>
+<li><div align="justify"><strong>Eficiencia Operativa</strong>: Identificar áreas donde se puede reducir el desperdicio y optimizar el uso de recursos.</div>
+</li>
+<li><div align="justify"><strong>Prevención de Fraude</strong>: Implementar sistemas de detección de fraude basados en patrones anómalos en los datos transaccionales.</div>
+</li>
+</ul>
+<p><strong>Predicción y Planificación</strong><br></p>
+<ul>
+<li><div align="justify"><strong>Predicción de Demandas</strong>: Ayuda a predecir demandas futuras, permitiendo a las empresas gestionar mejor sus inventarios y recursos.</div>
+</li>
+<li><div align="justify"><strong>Planificación Estratégica</strong>: Proveer insights para la planificación a largo plazo, ayudando a las empresas a anticiparse a las tendencias del mercado y preparar estrategias efectivas.</div>
+</li>
+</ul>
+<p><strong>Cumplimiento Normativo y Gestión de Riesgos</strong></p>
+<ul>
+<li><div align="justify"><strong>Cumplimiento Normativo</strong>: Asegura que las organizaciones cumplan con las normativas y regulaciones al monitorear y analizar continuamente los datos relevantes.</div>
+</li>
+<li><div align="justify"><strong>Gestión de Riesgos</strong>: Identificar y mitigar riesgos potenciales mediante el análisis de datos históricos y la modelización de escenarios.</div></li>
+</ul>
+<div class="admonition-ejemplos-de-uso-en-educacion admonition">
+<p class="admonition-title">Ejemplos de uso en Educación</p>
+<ul>
+<li><div align="justify"><strong>Análisis de rendimiento académico</strong>: Analizar el rendimiento de los estudiantes para identificar brechas, problemas y adaptar decisiones para la mejora, por ejemplo, diseñar métodos de enseñanza más efectivos.</div>
+</li>
+<li><div align="justify"><strong>Predicción del Desempeño</strong>: Identificar estudiantes en riesgo y tomar medidas proactivas para mejorar su rendimiento académico y evitar situaciones de repitencia.</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="visualizacion">
+<h2><span class="section-number">5.2. </span>Visualización<a class="headerlink" href="#visualizacion" title="Link to this heading">#</a></h2>
+<div class="admonition-por-que-es-importante-la-visualizacion admonition">
+<p class="admonition-title">¿Por qué es importante la visualización?</p>
+<div align="justify"> Un aspecto importante al trabajar con Datos es no solo el análisis sino su visualización. Por lo mismo, es muy importante saber elegir el o los gráficos adecuados para dar cuenta del análisis realizado y de la información que se desea dar a conocer</div>
+<div align="justify">Elegir el mejor gráfico para visualizar datos depende de varios factores, entre ellos los tipos de datos que uno posees, el mensaje que deseotransmitir y la audiencia a la que me dirigo. Aquí hay algunas consideraciones para tomar la mejor decisión:</div>
+</div>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/chart_type.jpeg"><img alt="grafico" src="_images/chart_type.jpeg" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">Tipos de Gráficos <a class="reference external" href="https://infogram.com/blog/choose-the-right-chart/">Fuente</a></span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="tipos-de-datos">
+<h3><span class="section-number">5.2.1. </span>Tipos de Datos<a class="headerlink" href="#tipos-de-datos" title="Link to this heading">#</a></h3>
+<p><strong>Datos Categóricos</strong></p>
+<ul class="simple">
+<li><p><strong>Gráfico de Barras</strong>: Ideal para comparar cantidades entre diferentes categorías.</p></li>
+<li><p><strong>Gráfico de Pastel</strong>: Útil para mostrar proporciones dentro de un todo, aunque puede ser menos efectivo que los gráficos de barras si hay muchas categorías.</p></li>
+<li><p><strong>Gráfico de Columnas</strong>: Similar al gráfico de barras pero con orientación vertical, adecuado para mostrar cambios a lo largo del tiempo si hay muchas categorías.</p></li>
+</ul>
+<p><strong>Datos Numéricos</strong></p>
+<ul class="simple">
+<li><p><strong>Histograma</strong>: Adecuado para mostrar la distribución de un conjunto de datos numéricos.</p></li>
+<li><p><strong>Gráfico de Líneas</strong>: Ideal para mostrar tendencias a lo largo del tiempo.</p></li>
+<li><p><strong>Diagrama de Dispersión</strong>: Bueno para mostrar la relación entre dos variables numéricas.</p></li>
+</ul>
+<p><strong>Datos Temporales</strong></p>
+<ul class="simple">
+<li><p><strong>Gráfico de Líneas</strong>: Perfecto para mostrar cómo cambian los datos a lo largo del tiempo.</p></li>
+<li><p><strong>Gráfico de Áreas</strong>: Útil para mostrar cambios acumulativos a lo largo del tiempo.</p></li>
+</ul>
+<p><strong>Datos de Relación</strong></p>
+<ul class="simple">
+<li><p><strong>Diagrama de Dispersión</strong>: Útil para mostrar la relación entre dos variables.</p></li>
+<li><p><strong>Gráfico de Burbuja</strong>: Extiende el diagrama de dispersión añadiendo una tercera variable a través del tamaño de la burbuja.</p></li>
+</ul>
+</section>
+<section id="proposito-del-analisis">
+<h3><span class="section-number">5.2.2. </span>Propósito del Análisis<a class="headerlink" href="#proposito-del-analisis" title="Link to this heading">#</a></h3>
+<p><strong>Comparación</strong></p>
+<ul class="simple">
+<li><p><strong>Gráfico de Barras</strong>: Excelente para comparar diferentes categorías.</p></li>
+<li><p><strong>Gráfico de Líneas</strong>: Bueno para comparar tendencias a lo largo del tiempo.</p></li>
+</ul>
+<p><strong>Distribución</strong></p>
+<ul class="simple">
+<li><p><strong>Histograma</strong>: Ideal para mostrar la distribución de un conjunto de datos.</p></li>
+<li><p><strong>Gráfico de Violín</strong>: Combina aspectos de un box plot y un kernel density plot para mostrar la distribución y probabilidad.</p></li>
+</ul>
+<p><strong>Relación</strong></p>
+<ul class="simple">
+<li><p><strong>Diagrama de Dispersión</strong>: Bueno para ver la relación entre dos variables.</p></li>
+<li><p><strong>Mapa de Calor</strong>: Útil para mostrar la intensidad de las relaciones entre variables.</p></li>
+</ul>
+<p><strong>Composición</strong></p>
+<ul class="simple">
+<li><p><strong>Gráfico de Pastel</strong>: Bueno para mostrar la composición de un todo.</p></li>
+<li><p><strong>Gráfico de Áreas Apiladas</strong>: Muestra cómo las partes de un todo cambian con el tiempo.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Revisa estos link para visualizar gráficos</p>
+<p><a class="reference external" href="https://datos.gob.es/es/blog/como-elegir-el-grafico-correcto-para-visualizar-datos-abiertos">¿Cómo elegir el gráfico correcto para visualizar datos abiertos?</a></p>
+<p><a class="reference external" href="https://plotly.com/python/">Documentación de Plotly</a></p>
+<p><a class="reference external" href="https://python-graph-gallery.com">The Python Graph Gallery</a></p>
+<p><a class="reference external" href="https://python-charts.com">Phyton Charts</a></p>
+<p><a class="reference external" href="https://infogram.com/blog/choose-the-right-chart/">How to choose the right chart for your data</a></p>
+<p><a class="reference external" href="https://bokeh.org">Librería Bokeh</a></p>
+</div>
+</section>
+</section>
+<section id="librerias">
+<h2><span class="section-number">5.3. </span>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
+<div class="admonition-que-es-una-libreria-en-python admonition">
+<p class="admonition-title">¿Qué es una librería en Python?</p>
+<div align="justify">Una librería en Python es un conjunto de funciones y herramientas predefinidas que se pueden utilizar para realizar tareas específicas sin necesidad de escribir el código desde cero. Estas librerías están diseñadas para ser reutilizables y facilitar el desarrollo de aplicaciones al proporcionar funciones y métodos que abordan problemas comunes.</div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="my-table-ref">
+<caption><span class="caption-number">Table 5.1 </span><span class="caption-text">Algunas Librerías de Python</span><a class="headerlink" href="#my-table-ref" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Nombre</p></th>
+<th class="head text-center"><p>Categoría</p></th>
+<th class="head text-center"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>math</p></td>
+<td class="text-center"><p>Matemáticas</p></td>
+<td class="text-center"><p>Provee funciones matemáticas, incluyendo trigonometría y logaritmos</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>datatime</p></td>
+<td class="text-center"><p>fecha y hora</p></td>
+<td class="text-center"><p>Tiene funciones que permiten manipular fechas y horas</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>os</p></td>
+<td class="text-center"><p>Sistema operativo</p></td>
+<td class="text-center"><p>Proporciona una forma portátil de utilizar funciones dependientes del sistema operativo, como leer o escribir archivos.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>sys</p></td>
+<td class="text-center"><p>Sistema específico</p></td>
+<td class="text-center"><p>Permite que los programas Python manipulen partes del entorno de ejecución, como los argumentos de la línea de comandos o el estado de salida.</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Random</p></td>
+<td class="text-center"><p>Valor Aleatorio</p></td>
+<td class="text-center"><p>Genera números pseudoaleatorios, permite la selección aleatoria de elementos, permutaciones aleatorias y más.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>re</p></td>
+<td class="text-center"><p>Expresiones Regulares</p></td>
+<td class="text-center"><p>Proporciona funciones para trabajar con expresiones regulares para potentes técnicas de manipulación de cadenas.</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>urlib</p></td>
+<td class="text-center"><p>Módulos de manejos de URL</p></td>
+<td class="text-center"><p>Obtiene URL y proporciona funcionalidad para analizar URL y cambiar entre rutas absolutas y relativas.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Bokeh</p></td>
+<td class="text-center"><p>Visualización</p></td>
+<td class="text-center"><p>visualización interactiva para Python que permite crear gráficos y widgets en línea.</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Plotly</p></td>
+<td class="text-center"><p>Visualización</p></td>
+<td class="text-center"><p>Crear visualizaciones de datos de tipo interactivo y en 3D, en línea.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Operadores.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Operadores</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Bases%20de%20Datos.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Base de Datos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-datos">5.1. Análisis de Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">5.2. Visualización</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos">5.2.1. Tipos de Datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposito-del-analisis">5.2.2. Propósito del Análisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">5.3. Librerías</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Claudio Rojas Monsalves.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

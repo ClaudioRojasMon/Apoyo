@@ -1,0 +1,2217 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6. Pandas &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Librerias';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. Referencia Bibliográfica" href="Bibliograf%C3%ADa.html" />
+    <link rel="prev" title="5. ¿Qué es el Análisis y la Visualización de Datos?" href="Visualizaci%C3%B3n.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Original Logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/Original Logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Notas de Clases - 2024
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Conceptos%20Basicos.html">1. Conociendo Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python%20B%C3%A1sico.html">2. Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metodos.html">3. Métodos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operadores.html">4. Operadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">introCAPII</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Visualizaci%C3%B3n.html">5. ¿Qué es el Análisis y la Visualización de Datos?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Pandas</a></li>
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Bibliograf%C3%ADa.html">12. Referencia Bibliográfica</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLibrerias.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Librerias.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pandas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">6. Pandas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">7. Matplotlib</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partes-de-un-grafico">7.1. Partes de un Gráfico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creamos-una-base-de-datos">7.1.1. Creamos una base de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#titulo">7.1.2. Título</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejes-xlabel-ylabel">7.1.3. Ejes (xlabel - ylabel)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leyenda-legend">7.1.4. Leyenda (legend)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuadricula-grid">7.1.5. Cuadrícula (Grid)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tamano">7.1.6. Tamaño</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colores-lineas-y-marcadores">7.1.7. Colores, Líneas y Marcadores</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-de-graficos-con-matplotlib">7.2. Ejemplos de Gráficos con Matplotlib</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-iii">8. Práctica III</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">9. Seaborn</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">10. Numpy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-iv">11. Práctica IV</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pandas">
+<h1><span class="section-number">6. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
+<div align="justify"><strong>Pandas</strong> es una muy popular librería de código abierto dentro de los desarrolladores de Python, y sobre todo dentro del ámbito de Data Science y Machine Learning, ya que ofrece unas estructuras muy poderosas y flexibles que facilitan la manipulación y tratamiento de datos. Las dos estructuras de datos principales dentro del paquete Pandas son:</div>
+<ul>
+<li><div align="justify"><strong>Series</strong>: array unidimensional etiquetado capaz de almacenar cualquier tipo de dato.</div> 
+</li>
+<li><div align="justify"><strong>DataFrame</strong>: estructura bidimensional con columnas que pueden ser también de cualquier tipo. Estas columnas son a su vez Series.</div>
+</li>
+</ul>
+<div align="justify">Para crear una serie ocupamos <strong>pd.Series(data=datos, index=indices, dtype=tipo)</strong></div>
+<ul class="simple">
+<li><p><strong>data</strong> es el conjunto de datos (puede ser una lista, un numpy array o un diccionario)</p></li>
+<li><p><strong>index</strong> es una lista con los indices. Si se omite, toma por defecto los valores desde 0 hasta len(datos)-1</p></li>
+<li><p><strong>dtype</strong> es el tipo de dato. (Especifica como se van a interpretar los datos de la Serie)</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Revisa para profundizar</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/index.html">Documentación de Pandas</a></p>
+<p class="sd-card-text"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/series.html">Atributos, operaciones y funciones en Series</a></p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span> <span class="c1"># en caso de que no est instalada.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in /Users/claudiorojas/anaconda3/lib/python3.11/site-packages (2.0.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /Users/claudiorojas/anaconda3/lib/python3.11/site-packages (from pandas) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /Users/claudiorojas/anaconda3/lib/python3.11/site-packages (from pandas) (2023.3.post1)
+Requirement already satisfied: tzdata&gt;=2022.1 in /Users/claudiorojas/anaconda3/lib/python3.11/site-packages (from pandas) (2023.3)
+Requirement already satisfied: numpy&gt;=1.21.0 in /Users/claudiorojas/anaconda3/lib/python3.11/site-packages (from pandas) (1.24.3)
+Requirement already satisfied: six&gt;=1.5 in /Users/claudiorojas/anaconda3/lib/python3.11/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importamos las librerías, le damos un seudónimo a las librerias para mejorar </span>
+<span class="c1"># legibilidad en el código.</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div align="justify"><strong>Crear un DataFrame.</strong>: Crea un DataFrame simple a partir de un diccionario </div> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Juan&#39;</span><span class="p">,</span> <span class="s1">&#39;María&#39;</span><span class="p">,</span> <span class="s1">&#39;Carlos&#39;</span><span class="p">,</span> <span class="s1">&#39;Luis&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;Edad&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+        <span class="s1">&#39;Ciudad&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;México&#39;</span><span class="p">,</span> <span class="s1">&#39;Madrid&#39;</span><span class="p">,</span> <span class="s1">&#39;Buenos Aires&#39;</span><span class="p">,</span> <span class="s1">&#39;Lima&#39;</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Nombre  Edad        Ciudad
+0    Juan    25        México
+1   María    30        Madrid
+2  Carlos    35  Buenos Aires
+3    Luis    40          Lima
+</pre></div>
+</div>
+</div>
+</div>
+<div align="justify"><strong>Seleccionar columnas</strong> : Selecciona una columna específica del DataFrame.</div>  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      Juan
+1     María
+2    Carlos
+3      Luis
+Name: Nombre, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div align="justify"><strong>Filtrar filas</strong>: Filtra filas basadas en una condición.</div> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtro</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Edad&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Nombre  Edad        Ciudad
+2  Carlos    35  Buenos Aires
+3    Luis    40          Lima
+</pre></div>
+</div>
+</div>
+</div>
+<div align="justify"><strong>Agregar una nueva columna</strong>: Agrega una nueva columna al DataFrame.</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Género&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Hombre&#39;</span><span class="p">,</span> <span class="s1">&#39;Mujer&#39;</span><span class="p">,</span> <span class="s1">&#39;Hombre&#39;</span><span class="p">,</span> <span class="s1">&#39;Hombre&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Nombre  Edad        Ciudad  Género
+0    Juan    25        México  Hombre
+1   María    30        Madrid   Mujer
+2  Carlos    35  Buenos Aires  Hombre
+3    Luis    40          Lima  Hombre
+</pre></div>
+</div>
+</div>
+</div>
+<div align="justify"><strong> Eliminar columnas</strong> : Elimina una columna del DataFrame.</div> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Ciudad&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Nombre  Edad  Género
+0    Juan    25  Hombre
+1   María    30   Mujer
+2  Carlos    35  Hombre
+3    Luis    40  Hombre
+</pre></div>
+</div>
+</div>
+</div>
+<div align="justify"><strong> Agregar una fila</strong>: Agrega una nueva fila al DataFrame.</div> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nueva_fila</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Nombre&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Laura&#39;</span><span class="p">],</span> <span class="s1">&#39;Edad&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="s1">&#39;Ciudad&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Barcelona&#39;</span><span class="p">],</span>
+                           <span class="s1">&#39;Género&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Mujer&#39;</span><span class="p">]})</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">nueva_fila</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Nombre  Edad  Género     Ciudad
+0    Juan    25  Hombre        NaN
+1   María    30   Mujer        NaN
+2  Carlos    35  Hombre        NaN
+3    Luis    40  Hombre        NaN
+4   Laura    28   Mujer  Barcelona
+</pre></div>
+</div>
+</div>
+</div>
+<div align="justify"><strong> Eliminar filas</strong>: Elimina filas del DataFrame.</div>  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Nombre  Edad  Género     Ciudad
+1   María    30   Mujer        NaN
+2  Carlos    35  Hombre        NaN
+3    Luis    40  Hombre        NaN
+4   Laura    28   Mujer  Barcelona
+</pre></div>
+</div>
+</div>
+</div>
+<div align="justify"><strong>Exportar a CSV</strong> : Exporta el DataFrame a un archivo CSV.</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;nuevo_archivo.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="matplotlib">
+<h1><span class="section-number">7. </span>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h1>
+<div class="admonition-que-es-matplotlib admonition">
+<p class="admonition-title">¿Qué es Matplotlib?</p>
+<div align="justify"><strong>Matplotlib</strong> es una librería Python open source, desarrollada inicialmente por el neurobiólogo John Hunter en 2002. El objetivo era visualizar las señales eléctricas del cerebro de personas epilépticas. Para conseguirlo, quería replicar las funcionalidades de creación gráfica de MATLAB con Python.</div>
+<div align="justify">Tras el fallecimiento de John Hunter en 2012, Matplotlib ha sido mejorado a lo largo del tiempo por numerosos contribuidores de la comunidad open source. Se ha utilizado para crear gráficas y diagramas de gran calidad. Es una alternativa open source a MATLAB.</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Revisa información para profundizar</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><a class="reference external" href="https://matplotlib.org">Matplotlib: Visualization with Python</a></p>
+<p class="sd-card-text"><a class="reference external" href="https://pypi.org/project/matplotlib/">Matplotlib</a></p>
+</div>
+</details><section id="partes-de-un-grafico">
+<h2><span class="section-number">7.1. </span>Partes de un Gráfico<a class="headerlink" href="#partes-de-un-grafico" title="Link to this heading">#</a></h2>
+<section id="creamos-una-base-de-datos">
+<h3><span class="section-number">7.1.1. </span>Creamos una base de datos<a class="headerlink" href="#creamos-una-base-de-datos" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Datos ficticios: ventas mensuales de productos</span>
+<span class="n">meses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Enero&#39;</span><span class="p">,</span> <span class="s1">&#39;Febrero&#39;</span><span class="p">,</span> <span class="s1">&#39;Marzo&#39;</span><span class="p">,</span> <span class="s1">&#39;Abril&#39;</span><span class="p">,</span> <span class="s1">&#39;Mayo&#39;</span><span class="p">]</span>
+<span class="n">productos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Producto A&#39;</span><span class="p">,</span> <span class="s1">&#39;Producto B&#39;</span><span class="p">,</span> <span class="s1">&#39;Producto C&#39;</span><span class="p">]</span>
+<span class="n">ventas</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">4500</span><span class="p">,</span> <span class="mi">4800</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">5200</span><span class="p">,</span> <span class="mi">4900</span><span class="p">],</span>  <span class="c1"># Ventas de Producto A</span>
+    <span class="p">[</span><span class="mi">3800</span><span class="p">,</span> <span class="mi">4100</span><span class="p">,</span> <span class="mi">3900</span><span class="p">,</span> <span class="mi">4200</span><span class="p">,</span> <span class="mi">4000</span><span class="p">],</span>  <span class="c1"># Ventas de Producto B</span>
+    <span class="p">[</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">3200</span><span class="p">,</span> <span class="mi">3100</span><span class="p">,</span> <span class="mi">3300</span><span class="p">,</span> <span class="mi">3400</span><span class="p">]</span>   <span class="c1"># Ventas de Producto C</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Crear un DataFrame a partir de los datos</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Mes&#39;</span><span class="p">:</span> <span class="n">meses</span><span class="p">,</span>
+    <span class="s1">&#39;Producto A&#39;</span><span class="p">:</span> <span class="n">ventas</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;Producto B&#39;</span><span class="p">:</span> <span class="n">ventas</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;Producto C&#39;</span><span class="p">:</span> <span class="n">ventas</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># Mostrar el DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       Mes  Producto A  Producto B  Producto C
+0    Enero        4500        3800        3000
+1  Febrero        4800        4100        3200
+2    Marzo        5000        3900        3100
+3    Abril        5200        4200        3300
+4     Mayo        4900        4000        3400
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="titulo">
+<h3><span class="section-number">7.1.2. </span>Título<a class="headerlink" href="#titulo" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Suponiendo que df es tu DataFrame creado anteriormente</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Mes&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Producto A&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>  <span class="c1"># Se eligen las columnas y el color de la línea.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ventas Mensuales del Producto A&#39;</span><span class="p">)</span>  <span class="c1"># Define el título del gráfico</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Ventas Mensuales del Producto A&#39;)
+</pre></div>
+</div>
+<img alt="_images/4018cb7072ca3caa19341211f2c8aaebd9fd3b50b77d36bb9a4561eb52bafddc.png" src="_images/4018cb7072ca3caa19341211f2c8aaebd9fd3b50b77d36bb9a4561eb52bafddc.png" />
+</div>
+</div>
+</section>
+<section id="ejes-xlabel-ylabel">
+<h3><span class="section-number">7.1.3. </span>Ejes (xlabel - ylabel)<a class="headerlink" href="#ejes-xlabel-ylabel" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Mes&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Producto A&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mes&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Mes.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ventas Producto A&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Producto A.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ventas Mensuales del Producto A&#39;</span><span class="p">);</span> <span class="c1"># definir el titulo de la grafica</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/86823e2e6be367debb7a288c9c8b3d574edaaf3393eb0c2d63b36fb25048666d.png" src="_images/86823e2e6be367debb7a288c9c8b3d574edaaf3393eb0c2d63b36fb25048666d.png" />
+</div>
+</div>
+</section>
+<section id="leyenda-legend">
+<h3><span class="section-number">7.1.4. </span>Leyenda (legend)<a class="headerlink" href="#leyenda-legend" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># se pone en el atributo &#39;label&#39; el texto deseado, en este caso ventas mensuales</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Mes&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Producto A&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ventas mensuales&quot;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mes&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Mes.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ventas Producto A&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Producto A.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ventas Mensuales del Producto A&#39;</span><span class="p">);</span> <span class="c1"># definir el titulo de la grafica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a2a5a2699a9f51ae2805e277b1c3d1e948c2c8b1bd5fc2e0cca230eeb48caf44.png" src="_images/a2a5a2699a9f51ae2805e277b1c3d1e948c2c8b1bd5fc2e0cca230eeb48caf44.png" />
+</div>
+</div>
+</section>
+<section id="cuadricula-grid">
+<h3><span class="section-number">7.1.5. </span>Cuadrícula (Grid)<a class="headerlink" href="#cuadricula-grid" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Mes&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Producto A&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ventas mensuales&quot;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mes&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Mes.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ventas Producto A&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Producto A.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ventas Mensuales del Producto A&#39;</span><span class="p">);</span> <span class="c1"># definir el titulo de la grafica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Al colocar True o dejar en blanco poner se instala la grid en la grafica</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/29e25c981577ca878c8c7a45e35cb8edb1a96b77f5ec43d7769537dcdf989cce.png" src="_images/29e25c981577ca878c8c7a45e35cb8edb1a96b77f5ec43d7769537dcdf989cce.png" />
+</div>
+</div>
+</section>
+<section id="tamano">
+<h3><span class="section-number">7.1.6. </span>Tamaño<a class="headerlink" href="#tamano" title="Link to this heading">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>¿Qué es Figsize y dpi?</p>
+<ul>
+<li><div align="justify"><strong>figsize</strong> es una tupla del ancho y alto de la figura en pulgadas.</div>
+</li>
+<li><div align="justify"><strong>dpi</strong>  es el punto por pulgada (pixel por pulgada).</div>
+</li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># uno puede alterar estos datos.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Mes&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Producto A&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ventas mensuales&quot;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mes&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Mes.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ventas Producto A&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Producto A.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ventas Mensuales del Producto A&#39;</span><span class="p">);</span> <span class="c1"># definir el titulo de la grafica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7cfc4ec5ff8b76db12fadf8471e5d045ff18cfe4456e7a7af277ed9d5a14a11e.png" src="_images/7cfc4ec5ff8b76db12fadf8471e5d045ff18cfe4456e7a7af277ed9d5a14a11e.png" />
+</div>
+</div>
+</section>
+<section id="colores-lineas-y-marcadores">
+<h3><span class="section-number">7.1.7. </span>Colores, Líneas y Marcadores<a class="headerlink" href="#colores-lineas-y-marcadores" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># uno puede alterar estos datos.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Mes&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Producto A&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ventas mensuales&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.00</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mes&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Mes.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ventas Producto A&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Producto A.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ventas Mensuales del Producto A&#39;</span><span class="p">);</span> <span class="c1"># definir el titulo de la grafica</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0fea8052d4fcfe49aca4f1c82729b3a1ced79d2cb40d34ceb92f5b4049fa1f46.png" src="_images/0fea8052d4fcfe49aca4f1c82729b3a1ced79d2cb40d34ceb92f5b4049fa1f46.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># uno puede alterar estos datos.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Mes&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Producto A&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s2">&quot;Ventas mensuales&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.50</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mes&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Mes.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ventas Producto A&#39;</span><span class="p">)</span> <span class="c1"># Nombre del eje X que en este caso corresponde a columna Producto A.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ventas Mensuales del Producto A&#39;</span><span class="p">);</span> <span class="c1"># definir el titulo de la grafica</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/80a619dd5ca5792c5a82665c19aa4fa4dea12e7d6ad5f70a46fefbda1e9a9742.png" src="_images/80a619dd5ca5792c5a82665c19aa4fa4dea12e7d6ad5f70a46fefbda1e9a9742.png" />
+</div>
+</div>
+<div class="admonition-revisa-marcadores-y-colores-en-matplotlib admonition">
+<p class="admonition-title">Revisa Marcadores y Colores en Matplotlib</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://es.matplotlib.net/stable/api/markers_api.html#module-matplotlib.markers">Marcadores</a></p></li>
+<li><p><a class="reference external" href="https://es.matplotlib.net/stable/api/colors_api.html">Colores</a></p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="ejemplos-de-graficos-con-matplotlib">
+<h2><span class="section-number">7.2. </span>Ejemplos de Gráficos con Matplotlib<a class="headerlink" href="#ejemplos-de-graficos-con-matplotlib" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Ejemplo de gráfico de líneas</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Eje X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Eje Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gráfico de Líneas&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Ejemplo de gráfico de dispersión</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Eje X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Eje Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gráfico de Dispersión&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/53fae4cbf1eb8f24d6640965e5f2ae1f0f013cb0878672bfbb9816e824e1abb3.png" src="_images/53fae4cbf1eb8f24d6640965e5f2ae1f0f013cb0878672bfbb9816e824e1abb3.png" />
+<img alt="_images/88ae6e28fbb47850587689c3d5dc265cd825688adf37fecb49abc721b5decfe0.png" src="_images/88ae6e28fbb47850587689c3d5dc265cd825688adf37fecb49abc721b5decfe0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Datos</span>
+<span class="n">categorias</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
+<span class="n">valores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="c1"># Gráfico de barras</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">categorias</span><span class="p">,</span> <span class="n">valores</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Categorías&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valores&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gráfico de Barras&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/79604e60e488632108b2a0570fb82fdc93edff6f15418a9ce7d2c71dde20b696.png" src="_images/79604e60e488632108b2a0570fb82fdc93edff6f15418a9ce7d2c71dde20b696.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Datos</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+
+<span class="c1"># Gráfico de dispersión</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Eje X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Eje Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gráfico de Dispersión&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/88ae6e28fbb47850587689c3d5dc265cd825688adf37fecb49abc721b5decfe0.png" src="_images/88ae6e28fbb47850587689c3d5dc265cd825688adf37fecb49abc721b5decfe0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Datos</span>
+<span class="n">sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
+
+<span class="c1"># Gráfico de torta</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gráfico de Torta&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4cfaf8a917ba5d13104c98ccad220c42ea2cb6c4e8ee259307bc035ef6ccd233.png" src="_images/4cfaf8a917ba5d13104c98ccad220c42ea2cb6c4e8ee259307bc035ef6ccd233.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Datos</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Gráfico de histograma</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valores&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/aadf936a489ec2b5b2afe9993351a34c35ee4a350866fbfb40b3fc5202b70949.png" src="_images/aadf936a489ec2b5b2afe9993351a34c35ee4a350866fbfb40b3fc5202b70949.png" />
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">¿Qué es Kaggle?…</p>
+<div align="justify">es una plataforma y entorno competitivo y motivador para todos los apasionados de la programación que quieran aprender, mejorar y contribuir al campo de la inteligencia artificial. En ella encontrar{as dataset de distintos ámbitos y tamaños, espacio de trabajo y competencias.</div>
+</div>
+</section>
+</section>
+<section id="practica-iii">
+<h1><span class="section-number">8. </span>Práctica III<a class="headerlink" href="#practica-iii" title="Link to this heading">#</a></h1>
+<div align="justify">En este caso, utilizamos el dataset llamado <strong>University Employee Salaries (2011 - Present)</strong> que explora los salarios de los empleados de educación superior de las universidades públicas de O Tenga en cuenta que los beneficios no están incluidos en los salarios informados.hio que se remontan a 2011. Este conjunto de datos ofrece información sobre las ganancias de varios puestos en múltiples instituciones, sin incluir otros beneficios.</div>
+<div align="justify">Este conjunto de datos incluye información salarial de los empleados de las universidades públicas de Ohio, que se extiende desde 2011 hasta el presente. El conjunto de datos ofrece detalles como el nombre del empleado, la escuela, la descripción del trabajo, el departamento, los ingresos y el año correspondiente.</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Cargar el archivo CSV en un DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;higher_ed_employee_salaries.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Mostrar las primeras filas del DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                Name                     School  \
+0         Don Potter        University of Akron   
+1       Emily Potter  The Ohio State University   
+2  Carol Jean Potter  The Ohio State University   
+3         Kim Potter  The Ohio State University   
+4      Graham Potter           Miami University   
+
+                  Job Description  \
+0              Assistant Lecturer   
+1      Administrative Assistant 3   
+2    Associate Professor-Clinical   
+3           Manager 4, Compliance   
+4  Building and Grounds Assistant   
+
+                                          Department   Earnings  Year  
+0                                        Social Work    2472.00  2019  
+1  Arts and Sciences | Chemistry and Biochemistry...   48538.02  2022  
+2                                         Pediatrics   22722.80  2013  
+3                         Legal Affairs | Compliance  170143.44  2022  
+4                Assoc VP Housing,Dining,Rec,Bus Svc    3075.20  2012  
+                        Name                          School  \
+934343         Danielle Noon            University of Toledo   
+934344         Danielle Noon            University of Toledo   
+934345  Kristen Lindsay Noon       The Ohio State University   
+934346         Danielle Noon            University of Toledo   
+934347          Kevin R Noon  Bowling Green State University   
+
+                     Job Description            Department   Earnings  Year  
+934343             Medical Assistant  OP-Clinic-Orthopedic   31659.43  2021  
+934344     Patient Registration Spec          Registration    7974.25  2019  
+934345  Assistant Professor-Clinical        Anesthesiology  243033.56  2018  
+934346             Medical Assistant  OP-Clinic-Orthopedic   37642.16  2022  
+934347    Asst Men&#39;s Basketbal Coach      Basketball - Men  103630.58  2022  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cambiar los nombres de las columnas</span>
+<span class="n">nuevos_nombres</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Nombre&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;School&#39;</span><span class="p">:</span> <span class="s1">&#39;Escuela&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Job Description&#39;</span><span class="p">:</span> <span class="s1">&#39;Trabajo&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Department&#39;</span><span class="p">:</span> <span class="s1">&#39;Departamento&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Earnings&#39;</span><span class="p">:</span> <span class="s1">&#39;Ganancias&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Year&#39;</span><span class="p">:</span> <span class="s1">&#39;Año&#39;</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">nuevos_nombres</span><span class="p">)</span>
+
+<span class="c1"># Mostrar solo los nombres de las columnas cambiadas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Nombre&#39;, &#39;Escuela&#39;, &#39;Trabajo&#39;, &#39;Departamento&#39;, &#39;Ganancias&#39;, &#39;Año&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filtrar datos por año (por ejemplo, 2019)</span>
+<span class="n">df_2019</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Año&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2019</span><span class="p">]</span>
+
+<span class="c1"># Mostrar las primeras filas del DataFrame filtrado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_2019</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            Nombre                    Escuela                       Trabajo  \
+0       Don Potter        University of Akron            Assistant Lecturer   
+35  Devante Potter  The Ohio State University      Research Assistant 1-B/H   
+36      Ana Potter  The Ohio State University        Patient Care Associate   
+40    Carol Potter  The Ohio State University  Associate Professor-Clinical   
+68     Luke Potter  The Ohio State University        Patient Care Associate   
+
+                     Departamento  Ganancias   Año  
+0                     Social Work    2472.00  2019  
+35     Chemistry and Biochemistry   20493.20  2019  
+36           University Hospitals    6583.86  2019  
+40                     Pediatrics   51060.36  2019  
+68  Cancer Hosp &amp; Research Instit    6784.69  2019  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular estadísticas descriptivas de las ganancias</span>
+<span class="n">earnings_stats</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Ganancias&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+
+<span class="c1"># Mostrar estadísticas descriptivas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">earnings_stats</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    9.246730e+05
+mean     5.465913e+04
+std      6.137398e+04
+min      2.000000e-02
+25%      2.024923e+04
+50%      4.452501e+04
+75%      7.099997e+04
+max      8.021377e+06
+Name: Ganancias, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identificar las escuelas únicas</span>
+<span class="n">escuelas_unicas</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Escuela&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+<span class="c1"># Mostrar las escuelas únicas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Escuelas únicas:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">escuela</span> <span class="ow">in</span> <span class="n">escuelas_unicas</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">escuela</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Escuelas únicas:
+University of Akron
+The Ohio State University
+Miami University
+Bowling Green State University
+Central State University
+Ohio University
+Youngstown State University
+Kent State University
+University Of Cincinnati
+Wright State University
+University of Toledo
+Shawnee State University
+Cleveland State University
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Contar la cantidad de veces que aparece cada escuela</span>
+<span class="n">conteo_escuelas</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Escuela&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="c1"># Mostrar el conteo de escuelas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cantidad de veces que aparece cada escuela:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conteo_escuelas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cantidad de veces que aparece cada escuela:
+Escuela
+The Ohio State University         424050
+University of Toledo               79777
+University Of Cincinnati           79021
+Kent State University              68338
+Ohio University                    59852
+Miami University                   58712
+Wright State University            40215
+Youngstown State University        32891
+Bowling Green State University     31119
+University of Akron                24101
+Cleveland State University         20876
+Shawnee State University            8362
+Central State University            7034
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Graficar el conteo de escuelas</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">conteo_escuelas</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Cantidad de veces que aparece cada escuela&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Escuela&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12]),
+ [Text(0, 0, &#39;The Ohio State University&#39;),
+  Text(1, 0, &#39;University of Toledo&#39;),
+  Text(2, 0, &#39;University Of Cincinnati&#39;),
+  Text(3, 0, &#39;Kent State University&#39;),
+  Text(4, 0, &#39;Ohio University&#39;),
+  Text(5, 0, &#39;Miami University&#39;),
+  Text(6, 0, &#39;Wright State University&#39;),
+  Text(7, 0, &#39;Youngstown State University&#39;),
+  Text(8, 0, &#39;Bowling Green State University&#39;),
+  Text(9, 0, &#39;University of Akron&#39;),
+  Text(10, 0, &#39;Cleveland State University&#39;),
+  Text(11, 0, &#39;Shawnee State University&#39;),
+  Text(12, 0, &#39;Central State University&#39;)])
+</pre></div>
+</div>
+<img alt="_images/0fa1064c7a80446bc16e3e10ce49484fc11102997be07b4d7a6a6ee963e0e808.png" src="_images/0fa1064c7a80446bc16e3e10ce49484fc11102997be07b4d7a6a6ee963e0e808.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Contar la cantidad de veces que aparece cada escuela</span>
+<span class="n">conteo_escuelas</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Trabajo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="c1"># Mostrar el conteo de escuelas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cantidad de veces que aparece cada Trabajo:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conteo_escuelas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cantidad de veces que aparece cada Trabajo:
+Trabajo
+Professor                                                28204
+Associate Professor                                      24831
+Assistant Professor                                      18684
+Staff Nurse-B                                            18399
+Lecturer                                                 15439
+                                                         ...  
+Manager 3, Nursing Education                                 1
+Assoc Professor - Educator CEAS - Mechanical Eng Tech        1
+Business Officer College of Allied Health Sciences           1
+QM Instructional Designer &amp; Master Reviewer                  1
+Assoc Head Mens BB Coach                                     1
+Name: count, Length: 38679, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="seaborn">
+<h1><span class="section-number">9. </span>Seaborn<a class="headerlink" href="#seaborn" title="Link to this heading">#</a></h1>
+<div align="justify"><strong>Seaborn</strong> es una librería de visualización de datos para Python desarrollada sobre matplotlib. Ofrece una interfaz de alto nivel para la creación de atractivas gráficas. Además, está íntimamente integrada con las estructuras de datos de pandas, lo que permite utilizar el nombre de los DataFrames y campos directamente como argumentos de las funciones de visualización.</div> 
+<div align="justify">Seaborn tiene como objetivo convertir la visualización en una parte central de la exploración y comprensión de los datos, generando atractivas gráficas con sencillas funciones que ofrecen una interfaz semejante, facilitando el paso de unas funciones a otras.</div> <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Revisa información para profundizar</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><a class="reference external" href="https://seaborn.pydata.org">Documentación</a></p>
+<p class="sd-card-text"><a class="reference external" href="https://python-charts.com/es/seaborn/">Python Charts Seaborn</a></p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Generar datos de ejemplo</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
+
+<span class="c1"># Gráfico de distribución (histograma) de una variable</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">datos</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Longitud del sépalo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma de Longitud del Sépalo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/898ae7c2a72ddd0625943a99e3585fba927bdcce7e3cda3b75d5623610142e3d.png" src="_images/898ae7c2a72ddd0625943a99e3585fba927bdcce7e3cda3b75d5623610142e3d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Generar datos de ejemplo</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
+
+<span class="c1"># Gráfico de dispersión de dos variables</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">datos</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Longitud del sépalo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Anchura del sépalo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gráfico de Dispersión de Longitud vs. Anchura del Sépalo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c3f8d834f60640143dc873676652925cf1bb83ddb45999490b1dd0e46c958925.png" src="_images/c3f8d834f60640143dc873676652925cf1bb83ddb45999490b1dd0e46c958925.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Generar datos de ejemplo</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;fmri&#39;</span><span class="p">)</span>
+
+<span class="c1"># Gráfico de líneas</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">datos</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;timepoint&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;signal&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;event&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Punto de tiempo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Señal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gráfico de Líneas de Señal en Puntos de Tiempo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/953d779cb878689ae9c0f1b3b1a0a423569e9797e338d732661cb50a95ca468f.png" src="_images/953d779cb878689ae9c0f1b3b1a0a423569e9797e338d732661cb50a95ca468f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Generar datos de ejemplo</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
+
+<span class="c1"># Gráfico de cajas</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">datos</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;petal_length&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Especies&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Longitud del pétalo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gráfico de Cajas de Longitud del Pétalo por Especie&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e91b267f70493d0d6cf12033137e31515082b982b6ddf29d0bab8a9932f85d79.png" src="_images/e91b267f70493d0d6cf12033137e31515082b982b6ddf29d0bab8a9932f85d79.png" />
+</div>
+</div>
+</section>
+<section id="numpy">
+<h1><span class="section-number">10. </span>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h1>
+<div align="justify"><strong>Numpy</strong> es una librería de Python especializada en el cálculo numérico y el análisis de datos, especialmente para un gran volumen de datos.Incorpora una nueva clase de objetos llamados arrays que permite representar colecciones de datos de un mismo tipo en varias dimensiones, y funciones muy eficientes para su manipulación.</div> 
+<div align="justify">Para crear un array se utiliza la siguiente función de NumPy</div>
+<ul>
+<li><div align="justify"><strong>np.array(lista):</strong> Crea un array a partir de la lista o tupla lista y devuelve una referencia a él. El número de dimensiones del array dependerá de las listas o tuplas anidadas en lista:</div>  
+</li>
+<li><div align="justify">Para una lista de valores se crea un array de una dimensión, también conocido como vector.</div> 
+</li>
+<li><div align="justify">Para una lista de listas de valores se crea un array de dos dimensiones, también conocido como matriz.</div>
+</li>
+<li><div align="justify">Para una lista de listas de listas de valores se crea un array de tres dimensiones, también conocido como cubo.</div>
+</li>
+<li><div align="justify">Y así sucesivamente. No hay límite en el número de dimensiones del array más allá de la memoria disponible en el sistema.</div> 
+</li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Revisa para profundizar:</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><a class="reference external" href="https://numpy.org">Documentación de Numpy</a></p>
+<p class="sd-card-text"><a class="reference external" href="https://python.land/data-science/numpy">Numpy</a></p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Crear un array NumPy unidimensional</span>
+<span class="n">array_unidimensional</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array unidimensional:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_unidimensional</span><span class="p">)</span>
+
+<span class="c1"># Crear un array NumPy bidimensional (matriz)</span>
+<span class="n">array_bidimensional</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Array bidimensional:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_bidimensional</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array unidimensional:
+[1 2 3 4 5]
+
+Array bidimensional:
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Crear dos arrays NumPy</span>
+<span class="n">array1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">array2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="c1"># Suma de arrays</span>
+<span class="n">suma</span> <span class="o">=</span> <span class="n">array1</span> <span class="o">+</span> <span class="n">array2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Suma de arrays:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">suma</span><span class="p">)</span>
+
+<span class="c1"># Producto de arrays</span>
+<span class="n">producto</span> <span class="o">=</span> <span class="n">array1</span> <span class="o">*</span> <span class="n">array2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Producto de arrays:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">producto</span><span class="p">)</span>
+
+<span class="c1"># Operaciones matemáticas</span>
+<span class="n">cuadrado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">array1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cuadrado de array1:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cuadrado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Suma de arrays:
+[5 7 9]
+
+Producto de arrays:
+[ 4 10 18]
+
+Cuadrado de array1:
+[1 4 9]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Generar datos aleatorios</span>
+<span class="n">datos_aleatorios</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Array unidimensional de 5 números aleatorios entre 0 y 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Datos aleatorios:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datos_aleatorios</span><span class="p">)</span>
+
+<span class="c1"># Generar matriz de números aleatorios</span>
+<span class="n">matriz_aleatoria</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># Matriz 3x3 de números aleatorios entre 1 y 9</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matriz aleatoria:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matriz_aleatoria</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Datos aleatorios:
+[0.82190391 0.70052862 0.8830776  0.96657511 0.77474761]
+
+Matriz aleatoria:
+[[4 4 8]
+ [9 5 8]
+ [9 5 2]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Crear un array NumPy</span>
+<span class="n">mi_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="c1"># Acceder a un elemento específico</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Primer elemento:&quot;</span><span class="p">,</span> <span class="n">mi_array</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Acceder a un rango de elementos</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Primeros tres elementos:&quot;</span><span class="p">,</span> <span class="n">mi_array</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># Modificar un elemento</span>
+<span class="n">mi_array</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array modificado:&quot;</span><span class="p">,</span> <span class="n">mi_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Primer elemento: 1
+Primeros tres elementos: [1 2 3]
+Array modificado: [ 1  2 10  4  5]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="practica-iv">
+<h1><span class="section-number">11. </span>Práctica IV<a class="headerlink" href="#practica-iv" title="Link to this heading">#</a></h1>
+<div align="justify">En este caso, utilizamos el dataset llamado <strong>Most Streamed Spotify Songs 2023</strong>.Este conjunto de datos contiene una lista completa de las canciones más famosas de 2023 que aparecen en Spotify. El conjunto de datos proporciona información sobre los atributos, la popularidad y la presencia de cada canción en varias plataformas de música.</div>
+<div align="justify">El conjunto de datos incluye información como el nombre de la pista, el nombre del artista, la fecha de lanzamiento, las listas de reproducción y listas de Spotify, las estadísticas de transmisión, la presencia de Apple Music, la presencia de Deezer, las listas de Shazam y varias funciones de audio.</div>
+<div align="justify">Atributos o nombres de las columnas.</div>
+<ul class="simple">
+<li><p>track_name: Nombre de la canción</p></li>
+<li><p>artista(s)_nombre: Nombre del(los) artista(s) de la canción</p></li>
+<li><p>artist_count: Número de artistas que contribuyen a la canción</p></li>
+<li><p>released_year: Año en el que se lanzó la canción</p></li>
+<li><p>released_month: Mes en el que se lanzó la canción</p></li>
+<li><p>released_day: Día del mes en el que se lanzó la canción</p></li>
+<li><p>in_spotify_playlists: Número de listas de reproducción de Spotify en las que se incluye la canción</p></li>
+<li><p>in_spotify_charts: Presencia y rango de la canción en las listas de Spotify transmisiones: Número total de transmisiones en Spotify</p></li>
+<li><p>in_apple_playlists: Número de listas de reproducción de Apple Music en las que se incluye la canción</p></li>
+<li><p>in_apple_charts: Presencia y rango de la canción en las listas de Apple Music</p></li>
+<li><p>in_deezer_playlists: Número de listas de reproducción de Deezer en las que se incluye la canción</p></li>
+<li><p>in_deezer_charts: Presencia y rango de la canción en las listas de Deezer</p></li>
+<li><p>in_shazam_charts: Presencia y rango de la canción en las listas de Shazam</p></li>
+<li><p>bpm: Latidos por minuto, una medida del tempo de la canción</p></li>
+<li><p>clave: Clave de la canción</p></li>
+<li><p>modo: Modo de la canción (mayor o menor)</p></li>
+<li><p>danceability_%: Porcentaje que indica lo adecuada que es la canción para bailar</p></li>
+<li><p>valence_%: Positividad del contenido musical de la canción</p></li>
+<li><p>energy_%: Nivel de energía percibido de la canción</p></li>
+<li><p>acústica_%: Cantidad de sonido acústico en la canción</p></li>
+<li><p>instrumentalness_%: Cantidad de contenido instrumental en la canción</p></li>
+<li><p>liveness_%: Presencia de elementos de actuación en vivo</p></li>
+<li><p>speechiness_%: Cantidad de palabras habladas en la canción</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Leer el archivo en modo binario y decodificar manualmente</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;spotify-2023.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">decoded_content</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+    <span class="n">decoded_content</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;latin-1&#39;</span><span class="p">)</span>  <span class="c1"># O cualquier otra codificación que sospeches</span>
+
+<span class="c1"># Guardar el contenido decodificado en un nuevo archivo temporal</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;spotify-2023-temp.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">decoded_content</span><span class="p">)</span>
+
+<span class="c1"># Cargar los datos desde el archivo temporal CSV</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;spotify-2023-temp.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Mostrar las primeras filas del DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            track_name    artist(s)_name  artist_count  \
+0  Seven (feat. Latto) (Explicit Ver.)  Latto, Jung Kook             2   
+1                                 LALA       Myke Towers             1   
+2                              vampire    Olivia Rodrigo             1   
+3                         Cruel Summer      Taylor Swift             1   
+4                       WHERE SHE GOES         Bad Bunny             1   
+
+   released_year  released_month  released_day  in_spotify_playlists  \
+0           2023               7            14                   553   
+1           2023               3            23                  1474   
+2           2023               6            30                  1397   
+3           2019               8            23                  7858   
+4           2023               5            18                  3133   
+
+   in_spotify_charts    streams  in_apple_playlists  ...  bpm key   mode  \
+0                147  141381703                  43  ...  125   B  Major   
+1                 48  133716286                  48  ...   92  C#  Major   
+2                113  140003974                  94  ...  138   F  Major   
+3                100  800840817                 116  ...  170   A  Major   
+4                 50  303236322                  84  ...  144   A  Minor   
+
+  danceability_%  valence_% energy_% acousticness_%  instrumentalness_%  \
+0             80         89       83             31                   0   
+1             71         61       74              7                   0   
+2             51         32       53             17                   0   
+3             55         58       72             11                   0   
+4             65         23       80             14                  63   
+
+   liveness_%  speechiness_%  
+0           8              4  
+1          10              4  
+2          31              6  
+3          11             15  
+4          11              6  
+
+[5 rows x 24 columns]
+                    track_name      artist(s)_name  artist_count  \
+948               My Mind &amp; Me        Selena Gomez             1   
+949  Bigger Than The Whole Sky        Taylor Swift             1   
+950       A Veces (feat. Feid)  Feid, Paulo Londra             2   
+951              En La De Ella  Feid, Sech, Jhayco             3   
+952                      Alone           Burna Boy             1   
+
+     released_year  released_month  released_day  in_spotify_playlists  \
+948           2022              11             3                   953   
+949           2022              10            21                  1180   
+950           2022              11             3                   573   
+951           2022              10            20                  1320   
+952           2022              11             4                   782   
+
+     in_spotify_charts    streams  in_apple_playlists  ...  bpm key   mode  \
+948                  0   91473363                  61  ...  144   A  Major   
+949                  0  121871870                   4  ...  166  F#  Major   
+950                  0   73513683                   2  ...   92  C#  Major   
+951                  0  133895612                  29  ...   97  C#  Major   
+952                  2   96007391                  27  ...   90   E  Minor   
+
+    danceability_%  valence_% energy_% acousticness_%  instrumentalness_%  \
+948             60         24       39             57                   0   
+949             42          7       24             83                   1   
+950             80         81       67              4                   0   
+951             82         67       77              8                   0   
+952             61         32       67             15                   0   
+
+     liveness_%  speechiness_%  
+948           8              3  
+949          12              6  
+950           8              6  
+951          12              5  
+952          11              5  
+
+[5 rows x 24 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Describir el DataFrame para obtener estadísticas descriptivas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+
+<span class="c1"># Verificar si hay valores nulos en el DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       artist_count  released_year  released_month  released_day  \
+count    953.000000     953.000000      953.000000    953.000000   
+mean       1.556139    2018.238195        6.033578     13.930745   
+std        0.893044      11.116218        3.566435      9.201949   
+min        1.000000    1930.000000        1.000000      1.000000   
+25%        1.000000    2020.000000        3.000000      6.000000   
+50%        1.000000    2022.000000        6.000000     13.000000   
+75%        2.000000    2022.000000        9.000000     22.000000   
+max        8.000000    2023.000000       12.000000     31.000000   
+
+       in_spotify_playlists  in_spotify_charts  in_apple_playlists  \
+count            953.000000         953.000000          953.000000   
+mean            5200.124869          12.009444           67.812172   
+std             7897.608990          19.575992           86.441493   
+min               31.000000           0.000000            0.000000   
+25%              875.000000           0.000000           13.000000   
+50%             2224.000000           3.000000           34.000000   
+75%             5542.000000          16.000000           88.000000   
+max            52898.000000         147.000000          672.000000   
+
+       in_apple_charts  in_deezer_charts         bpm  danceability_%  \
+count       953.000000        953.000000  953.000000       953.00000   
+mean         51.908709          2.666317  122.540399        66.96957   
+std          50.630241          6.035599   28.057802        14.63061   
+min           0.000000          0.000000   65.000000        23.00000   
+25%           7.000000          0.000000  100.000000        57.00000   
+50%          38.000000          0.000000  121.000000        69.00000   
+75%          87.000000          2.000000  140.000000        78.00000   
+max         275.000000         58.000000  206.000000        96.00000   
+
+        valence_%    energy_%  acousticness_%  instrumentalness_%  liveness_%  \
+count  953.000000  953.000000      953.000000          953.000000  953.000000   
+mean    51.431270   64.279119       27.057712            1.581322   18.213012   
+std     23.480632   16.550526       25.996077            8.409800   13.711223   
+min      4.000000    9.000000        0.000000            0.000000    3.000000   
+25%     32.000000   53.000000        6.000000            0.000000   10.000000   
+50%     51.000000   66.000000       18.000000            0.000000   12.000000   
+75%     70.000000   77.000000       43.000000            0.000000   24.000000   
+max     97.000000   97.000000       97.000000           91.000000   97.000000   
+
+       speechiness_%  
+count     953.000000  
+mean       10.131165  
+std         9.912888  
+min         2.000000  
+25%         4.000000  
+50%         6.000000  
+75%        11.000000  
+max        64.000000  
+track_name               0
+artist(s)_name           0
+artist_count             0
+released_year            0
+released_month           0
+released_day             0
+in_spotify_playlists     0
+in_spotify_charts        0
+streams                  0
+in_apple_playlists       0
+in_apple_charts          0
+in_deezer_playlists      0
+in_deezer_charts         0
+in_shazam_charts        50
+bpm                      0
+key                     95
+mode                     0
+danceability_%           0
+valence_%                0
+energy_%                 0
+acousticness_%           0
+instrumentalness_%       0
+liveness_%               0
+speechiness_%            0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar columnas que contienen valores nulos</span>
+<span class="n">df_sin_nulos_columnas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sin_nulos_columnas</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name              0
+artist(s)_name          0
+artist_count            0
+released_year           0
+released_month          0
+released_day            0
+in_spotify_playlists    0
+in_spotify_charts       0
+streams                 0
+in_apple_playlists      0
+in_apple_charts         0
+in_deezer_playlists     0
+in_deezer_charts        0
+bpm                     0
+mode                    0
+danceability_%          0
+valence_%               0
+energy_%                0
+acousticness_%          0
+instrumentalness_%      0
+liveness_%              0
+speechiness_%           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar filas que contienen valores nulos</span>
+<span class="n">df_sin_nulos</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sin_nulos</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name              0
+artist(s)_name          0
+artist_count            0
+released_year           0
+released_month          0
+released_day            0
+in_spotify_playlists    0
+in_spotify_charts       0
+streams                 0
+in_apple_playlists      0
+in_apple_charts         0
+in_deezer_playlists     0
+in_deezer_charts        0
+in_shazam_charts        0
+bpm                     0
+key                     0
+mode                    0
+danceability_%          0
+valence_%               0
+energy_%                0
+acousticness_%          0
+instrumentalness_%      0
+liveness_%              0
+speechiness_%           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar columnas que contienen valores nulos</span>
+<span class="n">df_sin_nulos_columnas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sin_nulos_columnas</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name              0
+artist(s)_name          0
+artist_count            0
+released_year           0
+released_month          0
+released_day            0
+in_spotify_playlists    0
+in_spotify_charts       0
+streams                 0
+in_apple_playlists      0
+in_apple_charts         0
+in_deezer_playlists     0
+in_deezer_charts        0
+bpm                     0
+mode                    0
+danceability_%          0
+valence_%               0
+energy_%                0
+acousticness_%          0
+instrumentalness_%      0
+liveness_%              0
+speechiness_%           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rellenar los valores nulos con 0</span>
+<span class="n">df_relleno_cero</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_relleno_cero</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name              0
+artist(s)_name          0
+artist_count            0
+released_year           0
+released_month          0
+released_day            0
+in_spotify_playlists    0
+in_spotify_charts       0
+streams                 0
+in_apple_playlists      0
+in_apple_charts         0
+in_deezer_playlists     0
+in_deezer_charts        0
+in_shazam_charts        0
+bpm                     0
+key                     0
+mode                    0
+danceability_%          0
+valence_%               0
+energy_%                0
+acousticness_%          0
+instrumentalness_%      0
+liveness_%              0
+speechiness_%           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rellenar los valores nulos con una cadena específica</span>
+<span class="n">df_relleno_texto</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;Desconocido&#39;</span><span class="p">)</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_relleno_texto</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name              0
+artist(s)_name          0
+artist_count            0
+released_year           0
+released_month          0
+released_day            0
+in_spotify_playlists    0
+in_spotify_charts       0
+streams                 0
+in_apple_playlists      0
+in_apple_charts         0
+in_deezer_playlists     0
+in_deezer_charts        0
+in_shazam_charts        0
+bpm                     0
+key                     0
+mode                    0
+danceability_%          0
+valence_%               0
+energy_%                0
+acousticness_%          0
+instrumentalness_%      0
+liveness_%              0
+speechiness_%           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rellenar los valores nulos con la media de cada columna</span>
+<span class="n">df_relleno_media</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="s1">&#39;biufc&#39;</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Verificar el resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_relleno_media</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>track_name               0
+artist(s)_name           0
+artist_count             0
+released_year            0
+released_month           0
+released_day             0
+in_spotify_playlists     0
+in_spotify_charts        0
+streams                  0
+in_apple_playlists       0
+in_apple_charts          0
+in_deezer_playlists      0
+in_deezer_charts         0
+in_shazam_charts        50
+bpm                      0
+key                     95
+mode                     0
+danceability_%           0
+valence_%                0
+energy_%                 0
+acousticness_%           0
+instrumentalness_%       0
+liveness_%               0
+speechiness_%            0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Plotear la distribución del año de lanzamiento</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;released_year&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribución de Canciones por Año de Lanzamiento&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Año de Lanzamiento&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de Canciones&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3da8bcd0df1c7044548c65aed3f07428b07da8e193749c65a2e4cb447336c533.png" src="_images/3da8bcd0df1c7044548c65aed3f07428b07da8e193749c65a2e4cb447336c533.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Contar el número de canciones por artista</span>
+<span class="n">top_artists</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;artist(s)_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Plotear los 10 artistas con más canciones</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">top_artists</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">top_artists</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top 10 Artistas con Más Canciones en el Dataset&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Número de Canciones&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Artista&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/89c9cebb54328cd480f67321e587c905e9e3b3d66ead2d6064893880343d14f2.png" src="_images/89c9cebb54328cd480f67321e587c905e9e3b3d66ead2d6064893880343d14f2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Seleccionar algunas características de audio</span>
+<span class="n">audio_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;danceability_%&#39;</span><span class="p">,</span> <span class="s1">&#39;energy_%&#39;</span><span class="p">,</span> <span class="s1">&#39;acousticness_%&#39;</span><span class="p">]</span>
+
+<span class="c1"># Plotear un parplot para comparar estas características</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">audio_features</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Comparación de Atributos de Audio&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/claudiorojas/anaconda3/lib/python3.11/site-packages/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
+  self._figure.tight_layout(*args, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/77b2d8aa540faa2a23521c6b8025ca0f7f674d3f28372fc05f903cda7d0c4fb5.png" src="_images/77b2d8aa540faa2a23521c6b8025ca0f7f674d3f28372fc05f903cda7d0c4fb5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Calcular la matriz de correlación</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">audio_features</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="c1"># Crear un mapa de calor de la matriz de correlación</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Matriz de Correlación entre Atributos de Audio&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5660facfd75d85738286ef735b51f195db1008e30960cd1e8b88fecf7c51aab5.png" src="_images/5660facfd75d85738286ef735b51f195db1008e30960cd1e8b88fecf7c51aab5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotear la relación entre BPM y energy</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;bpm&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;energy_%&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relación entre BPM y Energy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;BPM&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Energy %&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cf76f97497164aca4b2a2af3f135bed6b53d9086a9ab1e323a6d15d167faa38b.png" src="_images/cf76f97497164aca4b2a2af3f135bed6b53d9086a9ab1e323a6d15d167faa38b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Calcular la media y desviación estándar de los BPM</span>
+<span class="n">bpm_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bpm&#39;</span><span class="p">])</span>
+<span class="n">bpm_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bpm&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Media de BPM: </span><span class="si">{</span><span class="n">bpm_mean</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Desviación Estándar de BPM: </span><span class="si">{</span><span class="n">bpm_std</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Calcular la media y desviación estándar de la energía</span>
+<span class="n">energy_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;energy_%&#39;</span><span class="p">])</span>
+<span class="n">energy_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;energy_%&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Media de Energy %: </span><span class="si">{</span><span class="n">energy_mean</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Desviación Estándar de Energy %: </span><span class="si">{</span><span class="n">energy_std</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Media de BPM: 122.54039874081847
+Desviación Estándar de BPM: 28.04307686714831
+Media de Energy %: 64.2791185729276
+Desviación Estándar de Energy %: 16.54184031690203
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mostrar las primeras filas del DataFrame original</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columnas originales:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># Renombrar las columnas</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Nombre&#39;</span><span class="p">,</span> <span class="s1">&#39;Artista&#39;</span><span class="p">,</span> <span class="s1">&#39;Artista_Contribuyentes&#39;</span><span class="p">,</span> <span class="s1">&#39;Año_lanzamiento&#39;</span><span class="p">,</span> <span class="s2">&quot;mes_lanzamiento&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Día_lanzamiento&#39;</span><span class="p">,</span> <span class="s1">&#39;Listas_Spotify&#39;</span><span class="p">,</span> <span class="s1">&#39;Transmisiones_Spotify&#39;</span><span class="p">,</span> <span class="s1">&#39;Listas_Apple&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Presencia_rango_Apple&#39;</span><span class="p">,</span> <span class="s2">&quot;Listas_Deezer&quot;</span><span class="p">,</span> <span class="s1">&#39;Presencia_rango_Deezer&#39;</span><span class="p">,</span> <span class="s1">&#39;Listas_Shazam&#39;</span><span class="p">,</span> <span class="s1">&#39;Anchura_Pixel&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Latidos&#39;</span><span class="p">,</span> <span class="s1">&#39;Clave&#39;</span><span class="p">,</span> <span class="s1">&#39;Modo&#39;</span><span class="p">,</span> <span class="s1">&#39;%_Baile&#39;</span><span class="p">,</span> <span class="s1">&#39;Positividad&#39;</span><span class="p">,</span> <span class="s1">&#39;%_energía&#39;</span><span class="p">,</span> <span class="s1">&#39;%_sonido_acústico&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;%_contenido_instrumental&#39;</span><span class="p">,</span>  <span class="s1">&#39;%_actuación_vivo&#39;</span><span class="p">,</span> <span class="s1">&#39;%_palabras_habladas&#39;</span><span class="p">,</span> 
+<span class="p">]</span>
+
+<span class="c1"># Mostrar las primeras filas del DataFrame con los nuevos nombres de las columnas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nuevas columnas:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Columnas originales: Index([&#39;track_name&#39;, &#39;artist(s)_name&#39;, &#39;artist_count&#39;, &#39;released_year&#39;,
+       &#39;released_month&#39;, &#39;released_day&#39;, &#39;in_spotify_playlists&#39;,
+       &#39;in_spotify_charts&#39;, &#39;streams&#39;, &#39;in_apple_playlists&#39;, &#39;in_apple_charts&#39;,
+       &#39;in_deezer_playlists&#39;, &#39;in_deezer_charts&#39;, &#39;in_shazam_charts&#39;, &#39;bpm&#39;,
+       &#39;key&#39;, &#39;mode&#39;, &#39;danceability_%&#39;, &#39;valence_%&#39;, &#39;energy_%&#39;,
+       &#39;acousticness_%&#39;, &#39;instrumentalness_%&#39;, &#39;liveness_%&#39;, &#39;speechiness_%&#39;],
+      dtype=&#39;object&#39;)
+Nuevas columnas: Index([&#39;Nombre&#39;, &#39;Artista&#39;, &#39;Artista_Contribuyentes&#39;, &#39;Año_lanzamiento&#39;,
+       &#39;mes_lanzamiento&#39;, &#39;Día_lanzamiento&#39;, &#39;Listas_Spotify&#39;,
+       &#39;Transmisiones_Spotify&#39;, &#39;Listas_Apple&#39;, &#39;Presencia_rango_Apple&#39;,
+       &#39;Listas_Deezer&#39;, &#39;Presencia_rango_Deezer&#39;, &#39;Listas_Shazam&#39;,
+       &#39;Anchura_Pixel&#39;, &#39;Latidos&#39;, &#39;Clave&#39;, &#39;Modo&#39;, &#39;%_Baile&#39;, &#39;Positividad&#39;,
+       &#39;%_energía&#39;, &#39;%_sonido_acústico&#39;, &#39;%_contenido_instrumental&#39;,
+       &#39;%_actuación_vivo&#39;, &#39;%_palabras_habladas&#39;],
+      dtype=&#39;object&#39;)
+                                Nombre           Artista  \
+0  Seven (feat. Latto) (Explicit Ver.)  Latto, Jung Kook   
+1                                 LALA       Myke Towers   
+2                              vampire    Olivia Rodrigo   
+3                         Cruel Summer      Taylor Swift   
+4                       WHERE SHE GOES         Bad Bunny   
+
+   Artista_Contribuyentes  Año_lanzamiento  mes_lanzamiento  Día_lanzamiento  \
+0                       2             2023                7               14   
+1                       1             2023                3               23   
+2                       1             2023                6               30   
+3                       1             2019                8               23   
+4                       1             2023                5               18   
+
+   Listas_Spotify  Transmisiones_Spotify Listas_Apple  Presencia_rango_Apple  \
+0             553                    147    141381703                     43   
+1            1474                     48    133716286                     48   
+2            1397                    113    140003974                     94   
+3            7858                    100    800840817                    116   
+4            3133                     50    303236322                     84   
+
+   ...  Latidos Clave   Modo %_Baile  Positividad %_energía %_sonido_acústico  \
+0  ...      125     B  Major      80           89        83                31   
+1  ...       92    C#  Major      71           61        74                 7   
+2  ...      138     F  Major      51           32        53                17   
+3  ...      170     A  Major      55           58        72                11   
+4  ...      144     A  Minor      65           23        80                14   
+
+   %_contenido_instrumental  %_actuación_vivo  %_palabras_habladas  
+0                         0                 8                    4  
+1                         0                10                    4  
+2                         0                31                    6  
+3                         0                11                   15  
+4                        63                11                    6  
+
+[5 rows x 24 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Visualizaci%C3%B3n.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>¿Qué es el Análisis y la Visualización de Datos?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Bibliograf%C3%ADa.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Referencia Bibliográfica</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">6. Pandas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">7. Matplotlib</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partes-de-un-grafico">7.1. Partes de un Gráfico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creamos-una-base-de-datos">7.1.1. Creamos una base de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#titulo">7.1.2. Título</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejes-xlabel-ylabel">7.1.3. Ejes (xlabel - ylabel)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leyenda-legend">7.1.4. Leyenda (legend)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuadricula-grid">7.1.5. Cuadrícula (Grid)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tamano">7.1.6. Tamaño</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colores-lineas-y-marcadores">7.1.7. Colores, Líneas y Marcadores</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-de-graficos-con-matplotlib">7.2. Ejemplos de Gráficos con Matplotlib</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-iii">8. Práctica III</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">9. Seaborn</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">10. Numpy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practica-iv">11. Práctica IV</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Claudio Rojas Monsalves. Magíster en Ciencias de Datos (UDEC)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
