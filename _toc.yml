@@ -9,7 +9,9 @@ parts:
     chapters:
     - file: Conceptos Basicos
     - file: Python Básico
+    - file: Practica I
     - file: Metodos
+    - file: Practica II
     - file: Operadores
   - caption: Análisis y Visualización de Datos
     numbered: true
