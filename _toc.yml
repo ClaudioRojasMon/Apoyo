@@ -20,8 +20,8 @@ parts:
     - file: Bases de Datos
     - file: Graficos
     - file: Practica III
-    - file: Visualización Mapas
-    - file: Mapa
+    - file: Mapa I
+    - file: Mapa II
     - file: Practica IV
   - caption: Análisis y visualización de Textos
     numbered: true
