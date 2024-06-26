@@ -23,6 +23,10 @@ parts:
     - file: Visualización Mapas
     - file: Mapa
     - file: Practica IV
+  - caption: Análisis y visualización de Textos
+    numbered: true
+    chapters:
+    - file: Introducción a NLP
   - caption: Referencias
     numbered: true
     chapters:
