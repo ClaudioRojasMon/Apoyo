@@ -21,6 +21,8 @@ parts:
     - file: Graficos
     - file: Practica III
     - file: Visualización Mapas
+    - file: Mapa
+    - file: Practica IV
   - caption: Referencias
     numbered: true
     chapters:
