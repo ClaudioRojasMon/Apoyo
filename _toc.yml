@@ -26,7 +26,7 @@ parts:
   - caption: Análisis y visualización de Textos
     numbered: true
     chapters:
-    - file: Introducción a NLP
+    - file: Introducción a NLP I
   - caption: Referencias
     numbered: true
     chapters:
