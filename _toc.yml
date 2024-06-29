@@ -27,6 +27,9 @@ parts:
     numbered: true
     chapters:
     - file: Introducción a NLP I
+    - file: Introducción a NLP II
+    - file: Introducción a NLP III
+    - file: Practica V
   - caption: Referencias
     numbered: true
     chapters:
