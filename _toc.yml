@@ -35,7 +35,7 @@ parts:
   - caption: Referencias
     numbered: true
     chapters:
-    - file: Bibliografía
+    - file: Bib
     - file: glossary
  
 
