@@ -46,6 +46,6 @@ Bienvenido a Notas Clases 2024 de Claudio Rojas Monsalves. Con este libro, mi ob
 - Estudiantes del curso.
 - Todo aquel que desee conocer Python. 
 
-## Prerequisitos
+## Requisitos
 
 Nivel básico de programación. Aun cuando está pensado para quienes se inician desde cero en Pythom
