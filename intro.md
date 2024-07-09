@@ -1,5 +1,7 @@
 # Notas de Clases - 2024
 
+Claudio Rojas Monsalves
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12700168.svg)](https://doi.org/10.5281/zenodo.12700168)
 
 <a href="https://doi.org/10.5281/zenodo.12700168"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.12700168.svg" alt="DOI"></a>
