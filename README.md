@@ -53,6 +53,9 @@ Bienvenido a Notas Clases 2024 de Claudio Rojas Monsalves. Con este libro, mi ob
 
 Nivel básico de programación, aún cuando está pensado para quienes se inician desde cero en Python.
 
+## Referencia
+
 Citar este trabajo como:
-Formato APA: Claudio Rojas Monsalves. (2024). ClaudioRojasMon/Apoyo: Version 2 Notas (v2.0). Zenodo. https://doi.org/10.5281/zenodo.12700168
-Formato IEEE: [1]Claudio Rojas Monsalves, «ClaudioRojasMon/Apoyo: Version 2 Notas». Zenodo, jul. 09, 2024. doi: 10.5281/zenodo.12700168.
+
+ - Formato APA: Claudio Rojas Monsalves. (2024). ClaudioRojasMon/Apoyo: Version 2 Notas (v2.0). Zenodo. https://doi.org/10.5281/zenodo.12700168
+ - Formato IEEE: [1]Claudio Rojas Monsalves, «ClaudioRojasMon/Apoyo: Version 2 Notas». Zenodo, jul. 09, 2024. doi: 10.5281/zenodo.12700168.
