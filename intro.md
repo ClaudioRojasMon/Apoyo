@@ -1,5 +1,7 @@
 # Notas de Clases - 2024
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12700168.svg)](https://doi.org/10.5281/zenodo.12700168)
+
 <div align="justify">El presente texto tiene como objetivo sistematizar los contenidos y aprendizajes del curso de programación de Python que se ha realizado el año 2023 y 2024 a los estudiantes de II° medio, en el curso de Tecnología en el Colegio San Francisco Javier, ubicado en la ciudad de Puerto Montt.</div>
 <div align="justify">El texto se centra en la enseñanza del lenguaje de programación Python para uso escolar, dirigido a estudiantes que se inician en la programación. El texto se estructura en tres grandes unidades:</div>
 
