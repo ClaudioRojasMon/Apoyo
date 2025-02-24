@@ -4,6 +4,12 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Inteligencia Artificial
+    numbered: true
+    chapters:
+    - file: Inteligencia Artificial I
+    - file: Inteligencia Artificial II
+    - file: Inteligencia Artificial III
   - caption: Introducción a Python
     numbered: true
     chapters:
