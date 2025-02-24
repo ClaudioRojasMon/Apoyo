@@ -5,13 +5,11 @@ format: jb-book
 root: intro
 parts:
   - caption: Inteligencia Artificial
-    numbered: true
     chapters:
     - file: Inteligencia Artificial I
     - file: Inteligencia Artificial II
     - file: Inteligencia Artificial III
   - caption: Introducción a Python
-    numbered: true
     chapters:
     - file: Conceptos Basicos
     - file: Python Básico
@@ -20,7 +18,6 @@ parts:
     - file: Practica II
     - file: Operadores
   - caption: Análisis y Visualización de Datos
-    numbered: true
     chapters:
     - file: Visualización
     - file: Bases de Datos
@@ -30,7 +27,6 @@ parts:
     - file: Mapa II
     - file: Practica IV
   - caption: Análisis y visualización de Textos
-    numbered: true
     chapters:
     - file: Introducción a NLP I
     - file: Introducción a NLP II
@@ -39,7 +35,6 @@ parts:
     - file: Introducción a NLP IV
     - file: Practica VI
   - caption: Referencias
-    numbered: true
     chapters:
     - file: Bib
     - file: glossary
