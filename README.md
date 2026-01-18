@@ -1,61 +1,112 @@
 ![Logo](https://github.com/ClaudioRojasMon/Trayectorias_Academicas/blob/79b362cb03730b1e8f20d9116f9fc4cbfddd78fc/Original%20Logo.png)
 
-# Notas de  Clases 2024
+# 📚 Notas de Clases Python - Educación Secundaria
+
+**Curso completo de Python, Data Science y NLP para estudiantes de educación media**
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12700168.svg)](https://doi.org/10.5281/zenodo.12700168)
+[![Jupyter Book](https://img.shields.io/badge/Jupyter-Book-orange)](https://claudiorojasmon.github.io/Apoyo/intro.html)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 
+🌐 **[Ver libro interactivo →](https://claudiorojasmon.github.io/Apoyo/intro.html)**
 
-## Descripción del Texto
+---
 
-Bienvenido a Notas Clases 2024 de Claudio Rojas Monsalves. Con este libro, mi objetivo sistematizar los contenidos y aprendizajes del curso de programación de Python que se ha estado realizando el año 2023 y 2024 a los estudiantes de II° medio, en el curso de Tecnología en el Colegio San Francisco Javier, ubicado en la ciudad de Puerto Montt.### Estado del Proyecto
+## 📖 Sobre este proyecto
 
-## Recursos Utilizados
+Libro interactivo desarrollado con Jupyter Book para el curso de Tecnología de II° Medio en el Colegio San Francisco Javier, Puerto Montt, Chile.
 
-- Notebook de Jupyter Lab
-- Markdwon de Jupyter Lab
-- Jupyter Book
-- Bases de Datos de Kaggle
+### 🎯 ¿Por qué es especial?
 
-## Tabla de Contenidos  
+- **📚 Publicación académica formal** - Con DOI de Zenodo, citable en formato APA/IEEE
+- **🎓 Contenido avanzado** - NLP y Data Science para secundaria (poco común)
+- **👨‍🏫 En uso real** - Utilizado activamente con mis estudiantes de 15-16 años
+- **🌐 Acceso abierto** - Recurso gratuito para la comunidad educativa
 
--  Introducción a Python
-    - Conceptos Basicos
-    - Python Básico
-    - Practica I
-    - Metodos
-    - Practica II
-    - Operadores
- - Análisis y Visualización de Datos
-    - Visualización
-    - Bases de Datos
-    - Graficos
-    - Practica III
-    - Visualizacion Mapas
-    - Mapa
-    - Practica IV
-- Procesamiento de Lenguaje Natural
-    - Introducción a NLP I
-    - Introducción a NLP II
-    - Introducción a NLP III
-    - Práctica V
-    - Introducción a NLP IV
-    - Práctica VI
-- Referencias
-    - Bibliografía
-    - Glosario
+## 📚 Contenido
 
-## Destinatarios
+### Unidad 1: Python Básico
+- Introducción al lenguaje
+- Variables y operadores
+- Condicionales y estructuras de control
+- Métodos y funciones
 
-- Estudiantes del curso.
-- Todo aquel que desee conocer Python. 
+### Unidad 2: Análisis y Visualización de Datos
+- Pandas para análisis de datos
+- Visualización con Matplotlib/Seaborn
+- Trabajo con bases de datos de Kaggle
+- Visualización geoespacial (mapas)
 
-## Requisitos
+### Unidad 3: Procesamiento de Lenguaje Natural (NLP)
+- Análisis de sentimientos
+- Polaridad de textos
+- Generación de resúmenes automáticos
+- Aplicaciones prácticas de NLP
 
-Nivel básico de programación, aún cuando está pensado para quienes se inician desde cero en Python.
+## 🎓 Nivel educativo
 
-## Referencia
+**Dirigido a:** Estudiantes de educación media (14-17 años)  
+**Prerequisitos:** Ninguno (se parte desde cero)  
+**Duración:** Curso anual de Tecnología
 
-Citar este trabajo como:
+## 🚀 Características técnicas
 
- - Formato APA: Claudio Rojas Monsalves. (2024). ClaudioRojasMon/Apoyo: Version 2 Notas (v2.0). Zenodo. https://doi.org/10.5281/zenodo.12700168
- - Formato IEEE: [1]Claudio Rojas Monsalves, «ClaudioRojasMon/Apoyo: Version 2 Notas». Zenodo, jul. 09, 2024. doi: 10.5281/zenodo.12700168.
+- **Framework:** Jupyter Book
+- **Lenguaje:** Python 3
+- **Librerías:** Pandas, Matplotlib, NLTK, spaCy
+- **Deployment:** GitHub Pages
+- **Licencia:** Abierta para uso educativo
+
+## 📊 Impacto
+
+Este material ha sido utilizado con **[X] estudiantes** desde 2023, logrando:
+- Introducción exitosa a programación en educación media
+- Desarrollo de pensamiento computacional
+- Proyectos estudiantiles de análisis de datos reales
+
+## 💡 Uso del material
+
+### Para docentes
+```bash
+# Clonar el repositorio
+git clone https://github.com/ClaudioRojasMon/Apoyo.git
+
+# Adaptar a tu contexto educativo
+# El libro es editable y personalizable
+```
+
+### Para estudiantes
+Simplemente visita el [libro interactivo](https://claudiorojasmon.github.io/Apoyo/intro.html)
+
+## 📝 Citar este trabajo
+
+**APA:**
+```
+Rojas Monsalves, C. (2024). ClaudioRojasMon/Apoyo: Version 2 Notas (v2.0). 
+Zenodo. https://doi.org/10.5281/zenodo.12700168
+```
+
+**IEEE:**
+```
+[1] C. Rojas Monsalves, "ClaudioRojasMon/Apoyo: Version 2 Notas". 
+Zenodo, jul. 09, 2024. doi: 10.5281/zenodo.12700168.
+```
+
+## 🤝 Contribuciones
+
+¿Eres docente y quieres mejorar el material? ¡Pull requests bienvenidos!
+
+## 👨‍💻 Autor
+
+**Claudio Rojas Monsalves**  
+- Docente con 20+ años de experiencia, 
+- Director Académico con más de 10 años de experiencia.
+- Magíster en Ciencias de Datos (UDEC).
+- Magíster en Gestión y Liderazgo Educacional (PUC). 
+
+📧 crojasmon@gmail.com  
+💼 [LinkedIn](https://www.linkedin.com/in/claudio-rojas-monsalves)
+
+---
+
+💙 Desarrollado con pasión por democratizar la educación en ciencia de datos 🇨🇱
