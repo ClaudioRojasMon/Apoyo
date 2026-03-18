@@ -48,3 +48,4 @@ Claudio Rojas Monsalves
 <div align="justify"><b>Formato IEEE:</b> [1]Claudio Rojas Monsalves, «ClaudioRojasMon/Apoyo: Version 2 Notas». Zenodo, jul. 09, 2024. doi: 10.5281/zenodo.12700168.</div>
 ```{tableofcontents}
 ```
+
