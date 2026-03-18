@@ -33,6 +33,8 @@ Claudio Rojas Monsalves
 </ul>
 </div>
 
+&nbsp;
+
 <div align="justify">Se espera que este texto se enriquezca y renueve anualmente mediante la mejora de los contenidos, el incremento de ejemplos y ejercicios para cada tema, y la incorporación de proyectos de diversa complejidad relacionados con la programación en Python y la ciencia de datos, los cuales podrán ser utilizados tanto por docentes como por estudiantes.</div>
 
 ## 🏆 Reconocimiento Internacional
