@@ -14,12 +14,6 @@ Claudio Rojas Monsalves
 
 <div align="justify">El texto se centra en la enseñanza de:</div>
 
-<div align="justify">Este curso surge de la necesidad de incorporar un conocimiento ampliamente difundido, pero poco presente en el plan de estudios de nuestro establecimiento. Considero esencial que cualquier estudiante lo conozca y sepa aplicarlo tanto en contextos personales como académicos.</div>
-
-&nbsp;
-
-<div align="justify">El texto se centra en la enseñanza de:</div>
-
 &nbsp;
 
 <div align="justify"><b>a) Inteligencia Artificial:</b>
