@@ -23,7 +23,12 @@ b) **Programación Básica e intermedia:**
 - Aplicación de Python para el análisis de bases de datos: uso de librerías con apoyo de dataset obtenidos de Kaggle.
 - Aplicación de Python para el análisis de textos: polaridad, resúmenes, análisis de sentimientos, etc.
 
-<div align="justify">Se espera que este texto se enriquezca y renueve anualmente mediante la mejora de los contenidos, el incremento de ejemplos y ejercicios para cada tema, y la incorporación de proyectos de diversa complejidad relacionados con la programación en python y la ciencia de datos, los cuales podrán ser utilizados tanto por docentes como por estudiantes.</div>
+<div align="justify">Se espera que este texto se enriquezca y renueve anualmente mediante la mejora de los contenidos, el incremento de ejemplos y ejercicios para cada tema, y la incorporación de proyectos de diversa complejidad relacionados con la programación en Python y la ciencia de datos, los cuales podrán ser utilizados tanto por docentes como por estudiantes.</div>
+
+## 🏆 Reconocimiento Internacional
+
+<div align="justify">Este libro forma parte de la <a href="https://executablebooks.org/en/latest/gallery/"><strong>Galería Oficial de Executable Books</strong></a>, una colección comunitaria de Jupyter Books destacados de todo el mundo. Es uno de los pocos recursos en español orientados a la enseñanza de Python para estudiantes de educación secundaria.</div>
+
 
 <div align="justify">Citar este trabajo como:</div>
 
