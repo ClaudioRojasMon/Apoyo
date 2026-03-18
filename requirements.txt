@@ -1,8 +1,9 @@
-jupyter-book
+jupyter-book==0.15.1
 matplotlib
 numpy
 pandas
 seaborn
-numpy
 folium
 geopandas
+nltk
+
