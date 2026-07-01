@@ -1,4 +1,4 @@
-![Logo](https://github.com/ClaudioRojasMon/Trayectorias_Academicas/blob/79b362cb03730b1e8f20d9116f9fc4cbfddd78fc/Original%20Logo.png](https://github.com/ClaudioRojasMon/Apoyo/blob/master/Logo-completo.png)
+![Logo](Logo-completo.png)
 
 # 📚 Notas de Clases Python - Educación Secundaria
 
